@@ -1,0 +1,2202 @@
+{
+  "exportedAt": "2026-03-11T22:36:00.208Z",
+  "baskets": [
+    {
+      "id": 1773265590635,
+      "num": 1,
+      "sku": "XSRH17731",
+      "count": 6
+    },
+    {
+      "id": 1773265609618,
+      "num": 2,
+      "sku": "XSRH56393",
+      "count": 10
+    },
+    {
+      "id": 1773265620700,
+      "num": 3,
+      "sku": "WTHW16992",
+      "count": 4
+    },
+    {
+      "id": 1773265624120,
+      "num": 4,
+      "sku": "JNTV56393",
+      "count": 11
+    },
+    {
+      "id": 1773265634786,
+      "num": 5,
+      "sku": "TZNQ01291",
+      "count": 10
+    },
+    {
+      "id": 1773265649303,
+      "num": 6,
+      "sku": "JOZI01386",
+      "count": 20
+    },
+    {
+      "id": 1773265676733,
+      "num": 7,
+      "sku": "AIOW01113",
+      "count": 10
+    },
+    {
+      "id": 1773265680040,
+      "num": 8,
+      "sku": "DSBN52970",
+      "count": 10
+    },
+    {
+      "id": 1773265720394,
+      "num": 9,
+      "sku": "TXCY35481",
+      "count": 10
+    },
+    {
+      "id": 1773265763320,
+      "num": 10,
+      "sku": "QVVJ16481",
+      "count": 6
+    },
+    {
+      "id": 1773265816366,
+      "num": 11,
+      "sku": "LLVI88948",
+      "count": 10
+    },
+    {
+      "id": 1773265828155,
+      "num": 12,
+      "sku": "FZRS01262",
+      "count": 9
+    },
+    {
+      "id": 1773265830860,
+      "num": 13,
+      "sku": "XATV01197",
+      "count": 10
+    },
+    {
+      "id": 1773265835038,
+      "num": 14,
+      "sku": "XTCB01301",
+      "count": 20
+    },
+    {
+      "id": 1773266162763,
+      "num": 15,
+      "sku": "JHES36120",
+      "count": 4
+    },
+    {
+      "id": 1773266175347,
+      "num": 16,
+      "sku": "JYIO36578",
+      "count": 4
+    },
+    {
+      "id": 1773266191762,
+      "num": 17,
+      "sku": "RRSM01243",
+      "count": 10
+    },
+    {
+      "id": 1773266243310,
+      "num": 18,
+      "sku": "UVEZ33767",
+      "count": 4
+    },
+    {
+      "id": 1773266399338,
+      "num": 19,
+      "sku": "GMEJ01372",
+      "count": 6
+    },
+    {
+      "id": 1773266445982,
+      "num": 20,
+      "sku": "H15$",
+      "count": 1
+    },
+    {
+      "id": 1773266480121,
+      "num": 21,
+      "sku": "USIV35614",
+      "count": 4
+    },
+    {
+      "id": 1773266666303,
+      "num": 22,
+      "sku": "POQV17604",
+      "count": 6
+    },
+    {
+      "id": 1773266685217,
+      "num": 23,
+      "sku": "BFME16916",
+      "count": 4
+    },
+    {
+      "id": 1773266691737,
+      "num": 24,
+      "sku": "BFME16928",
+      "count": 6
+    },
+    {
+      "id": 1773266707363,
+      "num": 25,
+      "sku": "SHHF36112",
+      "count": 10
+    },
+    {
+      "id": 1773266715683,
+      "num": 26,
+      "sku": "GMEJ35241",
+      "count": 4
+    },
+    {
+      "id": 1773266739115,
+      "num": 27,
+      "sku": "OCBC34962",
+      "count": 4
+    },
+    {
+      "id": 1773266742712,
+      "num": 28,
+      "sku": "MLNA01204",
+      "count": 4
+    },
+    {
+      "id": 1773266761514,
+      "num": 29,
+      "sku": "MKFA73326",
+      "count": 4
+    },
+    {
+      "id": 1773266786957,
+      "num": 30,
+      "sku": "YMLP73451",
+      "count": 4
+    },
+    {
+      "id": 1773266806609,
+      "num": 31,
+      "sku": "LOJO74104",
+      "count": 2
+    },
+    {
+      "id": 1773266812885,
+      "num": 32,
+      "sku": "FKRW00568",
+      "count": 2
+    },
+    {
+      "id": 1773266969513,
+      "num": 33,
+      "sku": "UBBU72035",
+      "count": 2
+    },
+    {
+      "id": 1773266985131,
+      "num": 34,
+      "sku": "RBLN72558",
+      "count": 2
+    },
+    {
+      "id": 1773267005406,
+      "num": 35,
+      "sku": "HRTN55843",
+      "count": 4
+    },
+    {
+      "id": 1773267035300,
+      "num": 36,
+      "sku": "HQJA73147",
+      "count": 4
+    },
+    {
+      "id": 1773267043256,
+      "num": 37,
+      "sku": "ECAC73319",
+      "count": 2
+    },
+    {
+      "id": 1773267064222,
+      "num": 38,
+      "sku": "TSPR72953",
+      "count": 2
+    },
+    {
+      "id": 1773267089753,
+      "num": 39,
+      "sku": "BVHQ73168",
+      "count": 2
+    },
+    {
+      "id": 1773267093414,
+      "num": 40,
+      "sku": "THHY71495",
+      "count": 2
+    },
+    {
+      "id": 1773267105009,
+      "num": 41,
+      "sku": "UDVL72734",
+      "count": 4
+    },
+    {
+      "id": 1773267115749,
+      "num": 42,
+      "sku": "GRVV01121",
+      "count": 10
+    },
+    {
+      "id": 1773267138256,
+      "num": 43,
+      "sku": "EWAP01184",
+      "count": 6
+    },
+    {
+      "id": 1773267141270,
+      "num": 44,
+      "sku": "XALA00581",
+      "count": 5
+    },
+    {
+      "id": 1773267149414,
+      "num": 45,
+      "sku": "JMSH34792",
+      "count": 4
+    },
+    {
+      "id": 1773267201789,
+      "num": 46,
+      "sku": "UGQX54646",
+      "count": 6
+    },
+    {
+      "id": 1773267283672,
+      "num": 47,
+      "sku": "NZTU01204",
+      "count": 4
+    },
+    {
+      "id": 1773267363926,
+      "num": 48,
+      "sku": "HAUW01145",
+      "count": 10
+    },
+    {
+      "id": 1773267443770,
+      "num": 49,
+      "sku": "YSXM72504",
+      "count": 4
+    },
+    {
+      "id": 1773267473103,
+      "num": 50,
+      "sku": "YODR73293",
+      "count": 2
+    },
+    {
+      "id": 1773267484575,
+      "num": 51,
+      "sku": "WNOF73388",
+      "count": 10
+    },
+    {
+      "id": 1773267534208,
+      "num": 52,
+      "sku": "BMWG57535",
+      "count": 1
+    },
+    {
+      "id": 1773267592753,
+      "num": 53,
+      "sku": "GUEM72486",
+      "count": 10
+    },
+    {
+      "id": 1773267602146,
+      "num": 54,
+      "sku": "VBLJ72320",
+      "count": 6
+    },
+    {
+      "id": 1773267709482,
+      "num": 55,
+      "sku": "FTEE73904",
+      "count": 4
+    },
+    {
+      "id": 1773267729178,
+      "num": 56,
+      "sku": "FOSR72570",
+      "count": 2
+    }
+  ],
+  "skuMap": {
+    "XSRH17731": 1,
+    "XSRH56393": 2,
+    "WTHW16992": 3,
+    "JNTV56393": 4,
+    "TZNQ01291": 5,
+    "JOZI01386": 6,
+    "AIOW01113": 7,
+    "DSBN52970": 8,
+    "TXCY35481": 9,
+    "QVVJ16481": 10,
+    "LLVI88948": 11,
+    "FZRS01262": 12,
+    "XATV01197": 13,
+    "XTCB01301": 14,
+    "JHES36120": 15,
+    "JYIO36578": 16,
+    "RRSM01243": 17,
+    "UVEZ33767": 18,
+    "GMEJ01372": 19,
+    "H15$": 20,
+    "USIV35614": 21,
+    "POQV17604": 22,
+    "BFME16916": 23,
+    "BFME16928": 24,
+    "SHHF36112": 25,
+    "GMEJ35241": 26,
+    "OCBC34962": 27,
+    "MLNA01204": 28,
+    "MKFA73326": 29,
+    "YMLP73451": 30,
+    "LOJO74104": 31,
+    "FKRW00568": 32,
+    "UBBU72035": 33,
+    "RBLN72558": 34,
+    "HRTN55843": 35,
+    "HQJA73147": 36,
+    "ECAC73319": 37,
+    "TSPR72953": 38,
+    "BVHQ73168": 39,
+    "THHY71495": 40,
+    "UDVL72734": 41,
+    "GRVV01121": 42,
+    "EWAP01184": 43,
+    "XALA00581": 44,
+    "JMSH34792": 45,
+    "UGQX54646": 46,
+    "NZTU01204": 47,
+    "HAUW01145": 48,
+    "YSXM72504": 49,
+    "YODR73293": 50,
+    "WNOF73388": 51,
+    "BMWG57535": 52,
+    "GUEM72486": 53,
+    "VBLJ72320": 54,
+    "FTEE73904": 55,
+    "FOSR72570": 56
+  },
+  "history": [
+    {
+      "time": "16:22:13",
+      "sku": "FOSR72570",
+      "basket": 56,
+      "isNew": false
+    },
+    {
+      "time": "16:22:09",
+      "sku": "FOSR72570",
+      "basket": 56,
+      "isNew": true
+    },
+    {
+      "time": "16:22:04",
+      "sku": "FTEE73904",
+      "basket": 55,
+      "isNew": false
+    },
+    {
+      "time": "16:22:00",
+      "sku": "FTEE73904",
+      "basket": 55,
+      "isNew": false
+    },
+    {
+      "time": "16:21:54",
+      "sku": "FTEE73904",
+      "basket": 55,
+      "isNew": false
+    },
+    {
+      "time": "16:21:49",
+      "sku": "FTEE73904",
+      "basket": 55,
+      "isNew": true
+    },
+    {
+      "time": "16:21:39",
+      "sku": "VBLJ72320",
+      "basket": 54,
+      "isNew": false
+    },
+    {
+      "time": "16:21:34",
+      "sku": "VBLJ72320",
+      "basket": 54,
+      "isNew": false
+    },
+    {
+      "time": "16:21:28",
+      "sku": "VBLJ72320",
+      "basket": 54,
+      "isNew": false
+    },
+    {
+      "time": "16:21:22",
+      "sku": "VBLJ72320",
+      "basket": 54,
+      "isNew": false
+    },
+    {
+      "time": "16:21:16",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:21:11",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:21:05",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:21:01",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:20:56",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:20:51",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:20:43",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:20:37",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:20:24",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": false
+    },
+    {
+      "time": "16:20:08",
+      "sku": "VBLJ72320",
+      "basket": 54,
+      "isNew": false
+    },
+    {
+      "time": "16:20:02",
+      "sku": "VBLJ72320",
+      "basket": 54,
+      "isNew": true
+    },
+    {
+      "time": "16:19:52",
+      "sku": "GUEM72486",
+      "basket": 53,
+      "isNew": true
+    },
+    {
+      "time": "16:19:46",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:19:40",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:19:30",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:19:26",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:19:22",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:19:17",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:19:10",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:18:54",
+      "sku": "BMWG57535",
+      "basket": 52,
+      "isNew": true
+    },
+    {
+      "time": "16:18:47",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:18:41",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": false
+    },
+    {
+      "time": "16:18:04",
+      "sku": "WNOF73388",
+      "basket": 51,
+      "isNew": true
+    },
+    {
+      "time": "16:17:58",
+      "sku": "YODR73293",
+      "basket": 50,
+      "isNew": false
+    },
+    {
+      "time": "16:17:53",
+      "sku": "YODR73293",
+      "basket": 50,
+      "isNew": true
+    },
+    {
+      "time": "16:17:43",
+      "sku": "YSXM72504",
+      "basket": 49,
+      "isNew": false
+    },
+    {
+      "time": "16:17:38",
+      "sku": "YSXM72504",
+      "basket": 49,
+      "isNew": false
+    },
+    {
+      "time": "16:17:30",
+      "sku": "YSXM72504",
+      "basket": 49,
+      "isNew": false
+    },
+    {
+      "time": "16:17:23",
+      "sku": "YSXM72504",
+      "basket": 49,
+      "isNew": true
+    },
+    {
+      "time": "16:17:14",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:17:08",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:17:01",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:16:40",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:16:33",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:16:27",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:16:24",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:16:21",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:16:12",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": false
+    },
+    {
+      "time": "16:16:03",
+      "sku": "HAUW01145",
+      "basket": 48,
+      "isNew": true
+    },
+    {
+      "time": "16:15:27",
+      "sku": "XSRH56393",
+      "basket": 2,
+      "isNew": false
+    },
+    {
+      "time": "16:15:22",
+      "sku": "UDVL72734",
+      "basket": 41,
+      "isNew": false
+    },
+    {
+      "time": "16:15:09",
+      "sku": "NZTU01204",
+      "basket": 47,
+      "isNew": false
+    },
+    {
+      "time": "16:15:07",
+      "sku": "NZTU01204",
+      "basket": 47,
+      "isNew": false
+    },
+    {
+      "time": "16:15:05",
+      "sku": "NZTU01204",
+      "basket": 47,
+      "isNew": false
+    },
+    {
+      "time": "16:14:43",
+      "sku": "NZTU01204",
+      "basket": 47,
+      "isNew": true
+    },
+    {
+      "time": "16:14:38",
+      "sku": "JMSH34792",
+      "basket": 45,
+      "isNew": false
+    },
+    {
+      "time": "16:14:20",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:14:16",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:14:14",
+      "sku": "UGQX54646",
+      "basket": 46,
+      "isNew": false
+    },
+    {
+      "time": "16:14:12",
+      "sku": "UGQX54646",
+      "basket": 46,
+      "isNew": false
+    },
+    {
+      "time": "16:14:08",
+      "sku": "UGQX54646",
+      "basket": 46,
+      "isNew": false
+    },
+    {
+      "time": "16:14:01",
+      "sku": "YMLP73451",
+      "basket": 30,
+      "isNew": false
+    },
+    {
+      "time": "16:13:58",
+      "sku": "OCBC34962",
+      "basket": 27,
+      "isNew": false
+    },
+    {
+      "time": "16:13:54",
+      "sku": "YMLP73451",
+      "basket": 30,
+      "isNew": false
+    },
+    {
+      "time": "16:13:40",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:13:33",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:13:28",
+      "sku": "UGQX54646",
+      "basket": 46,
+      "isNew": false
+    },
+    {
+      "time": "16:13:26",
+      "sku": "UGQX54646",
+      "basket": 46,
+      "isNew": false
+    },
+    {
+      "time": "16:13:21",
+      "sku": "UGQX54646",
+      "basket": 46,
+      "isNew": true
+    },
+    {
+      "time": "16:13:07",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:13:05",
+      "sku": "MLNA01204",
+      "basket": 28,
+      "isNew": false
+    },
+    {
+      "time": "16:12:59",
+      "sku": "MLNA01204",
+      "basket": 28,
+      "isNew": false
+    },
+    {
+      "time": "16:12:56",
+      "sku": "EWAP01184",
+      "basket": 43,
+      "isNew": false
+    },
+    {
+      "time": "16:12:54",
+      "sku": "EWAP01184",
+      "basket": 43,
+      "isNew": false
+    },
+    {
+      "time": "16:12:52",
+      "sku": "EWAP01184",
+      "basket": 43,
+      "isNew": false
+    },
+    {
+      "time": "16:12:38",
+      "sku": "EWAP01184",
+      "basket": 43,
+      "isNew": false
+    },
+    {
+      "time": "16:12:36",
+      "sku": "JMSH34792",
+      "basket": 45,
+      "isNew": false
+    },
+    {
+      "time": "16:12:31",
+      "sku": "JMSH34792",
+      "basket": 45,
+      "isNew": false
+    },
+    {
+      "time": "16:12:29",
+      "sku": "JMSH34792",
+      "basket": 45,
+      "isNew": true
+    },
+    {
+      "time": "16:12:28",
+      "sku": "XALA00581",
+      "basket": 44,
+      "isNew": false
+    },
+    {
+      "time": "16:12:26",
+      "sku": "XALA00581",
+      "basket": 44,
+      "isNew": false
+    },
+    {
+      "time": "16:12:25",
+      "sku": "XALA00581",
+      "basket": 44,
+      "isNew": false
+    },
+    {
+      "time": "16:12:23",
+      "sku": "XALA00581",
+      "basket": 44,
+      "isNew": false
+    },
+    {
+      "time": "16:12:21",
+      "sku": "XALA00581",
+      "basket": 44,
+      "isNew": true
+    },
+    {
+      "time": "16:12:19",
+      "sku": "EWAP01184",
+      "basket": 43,
+      "isNew": false
+    },
+    {
+      "time": "16:12:18",
+      "sku": "EWAP01184",
+      "basket": 43,
+      "isNew": true
+    },
+    {
+      "time": "16:12:08",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:12:07",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:12:06",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:12:05",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:12:03",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:12:02",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:12:01",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:12:00",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:11:58",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": false
+    },
+    {
+      "time": "16:11:55",
+      "sku": "GRVV01121",
+      "basket": 42,
+      "isNew": true
+    },
+    {
+      "time": "16:11:54",
+      "sku": "UDVL72734",
+      "basket": 41,
+      "isNew": false
+    },
+    {
+      "time": "16:11:52",
+      "sku": "UDVL72734",
+      "basket": 41,
+      "isNew": false
+    },
+    {
+      "time": "16:11:49",
+      "sku": "ECAC73319",
+      "basket": 37,
+      "isNew": false
+    },
+    {
+      "time": "16:11:45",
+      "sku": "UDVL72734",
+      "basket": 41,
+      "isNew": true
+    },
+    {
+      "time": "16:11:42",
+      "sku": "THHY71495",
+      "basket": 40,
+      "isNew": false
+    },
+    {
+      "time": "16:11:33",
+      "sku": "THHY71495",
+      "basket": 40,
+      "isNew": true
+    },
+    {
+      "time": "16:11:31",
+      "sku": "BVHQ73168",
+      "basket": 39,
+      "isNew": false
+    },
+    {
+      "time": "16:11:29",
+      "sku": "BVHQ73168",
+      "basket": 39,
+      "isNew": true
+    },
+    {
+      "time": "16:11:26",
+      "sku": "TSPR72953",
+      "basket": 38,
+      "isNew": false
+    },
+    {
+      "time": "16:11:04",
+      "sku": "TSPR72953",
+      "basket": 38,
+      "isNew": true
+    },
+    {
+      "time": "16:10:54",
+      "sku": "MKFA73326",
+      "basket": 29,
+      "isNew": false
+    },
+    {
+      "time": "16:10:50",
+      "sku": "JNTV56393",
+      "basket": 4,
+      "isNew": false
+    },
+    {
+      "time": "16:10:43",
+      "sku": "ECAC73319",
+      "basket": 37,
+      "isNew": true
+    },
+    {
+      "time": "16:10:41",
+      "sku": "HQJA73147",
+      "basket": 36,
+      "isNew": false
+    },
+    {
+      "time": "16:10:40",
+      "sku": "HQJA73147",
+      "basket": 36,
+      "isNew": false
+    },
+    {
+      "time": "16:10:38",
+      "sku": "HQJA73147",
+      "basket": 36,
+      "isNew": false
+    },
+    {
+      "time": "16:10:35",
+      "sku": "HQJA73147",
+      "basket": 36,
+      "isNew": true
+    },
+    {
+      "time": "16:10:32",
+      "sku": "HRTN55843",
+      "basket": 35,
+      "isNew": false
+    },
+    {
+      "time": "16:10:20",
+      "sku": "UBBU72035",
+      "basket": 33,
+      "isNew": false
+    },
+    {
+      "time": "16:10:18",
+      "sku": "JNTV56393",
+      "basket": 4,
+      "isNew": false
+    },
+    {
+      "time": "16:10:14",
+      "sku": "HRTN55843",
+      "basket": 35,
+      "isNew": false
+    },
+    {
+      "time": "16:10:11",
+      "sku": "HRTN55843",
+      "basket": 35,
+      "isNew": false
+    },
+    {
+      "time": "16:10:05",
+      "sku": "HRTN55843",
+      "basket": 35,
+      "isNew": true
+    },
+    {
+      "time": "16:09:57",
+      "sku": "JNTV56393",
+      "basket": 4,
+      "isNew": false
+    },
+    {
+      "time": "16:09:50",
+      "sku": "GMEJ01372",
+      "basket": 19,
+      "isNew": false
+    },
+    {
+      "time": "16:09:48",
+      "sku": "RBLN72558",
+      "basket": 34,
+      "isNew": false
+    },
+    {
+      "time": "16:09:45",
+      "sku": "RBLN72558",
+      "basket": 34,
+      "isNew": true
+    },
+    {
+      "time": "16:09:29",
+      "sku": "UBBU72035",
+      "basket": 33,
+      "isNew": true
+    },
+    {
+      "time": "16:09:24",
+      "sku": "JNTV56393",
+      "basket": 4,
+      "isNew": false
+    },
+    {
+      "time": "16:09:11",
+      "sku": "GMEJ35241",
+      "basket": 26,
+      "isNew": false
+    },
+    {
+      "time": "16:09:08",
+      "sku": "GMEJ01372",
+      "basket": 19,
+      "isNew": false
+    },
+    {
+      "time": "16:09:03",
+      "sku": "GMEJ01372",
+      "basket": 19,
+      "isNew": false
+    },
+    {
+      "time": "16:08:55",
+      "sku": "GMEJ01372",
+      "basket": 19,
+      "isNew": false
+    },
+    {
+      "time": "16:08:45",
+      "sku": "GMEJ35241",
+      "basket": 26,
+      "isNew": false
+    },
+    {
+      "time": "16:08:42",
+      "sku": "JNTV56393",
+      "basket": 4,
+      "isNew": false
+    },
+    {
+      "time": "16:08:37",
+      "sku": "JNTV56393",
+      "basket": 4,
+      "isNew": false
+    },
+    {
+      "time": "16:08:26",
+      "sku": "GMEJ35241",
+      "basket": 26,
+      "isNew": false
+    },
+    {
+      "time": "16:08:22",
+      "sku": "JNTV56393",
+      "basket": 4,
+      "isNew": false
+    },
+    {
+      "time": "16:08:04",
+      "sku": "JNTV56393",
+      "basket": 4,
+      "isNew": false
+    },
+    {
+      "time": "16:06:55",
+      "sku": "FKRW00568",
+      "basket": 32,
+      "isNew": false
+    },
+    {
+      "time": "16:06:52",
+      "sku": "FKRW00568",
+      "basket": 32,
+      "isNew": true
+    },
+    {
+      "time": "16:06:50",
+      "sku": "LOJO74104",
+      "basket": 31,
+      "isNew": false
+    },
+    {
+      "time": "16:06:46",
+      "sku": "LOJO74104",
+      "basket": 31,
+      "isNew": true
+    },
+    {
+      "time": "16:06:43",
+      "sku": "MLNA01204",
+      "basket": 28,
+      "isNew": false
+    },
+    {
+      "time": "16:06:41",
+      "sku": "OCBC34962",
+      "basket": 27,
+      "isNew": false
+    },
+    {
+      "time": "16:06:38",
+      "sku": "YMLP73451",
+      "basket": 30,
+      "isNew": false
+    },
+    {
+      "time": "16:06:32",
+      "sku": "OCBC34962",
+      "basket": 27,
+      "isNew": false
+    },
+    {
+      "time": "16:06:26",
+      "sku": "YMLP73451",
+      "basket": 30,
+      "isNew": true
+    },
+    {
+      "time": "16:06:09",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "16:06:06",
+      "sku": "MKFA73326",
+      "basket": 29,
+      "isNew": false
+    },
+    {
+      "time": "16:06:04",
+      "sku": "MKFA73326",
+      "basket": 29,
+      "isNew": false
+    },
+    {
+      "time": "16:06:01",
+      "sku": "MKFA73326",
+      "basket": 29,
+      "isNew": true
+    },
+    {
+      "time": "16:05:42",
+      "sku": "MLNA01204",
+      "basket": 28,
+      "isNew": true
+    },
+    {
+      "time": "16:05:39",
+      "sku": "OCBC34962",
+      "basket": 27,
+      "isNew": true
+    },
+    {
+      "time": "16:05:35",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:05:15",
+      "sku": "GMEJ35241",
+      "basket": 26,
+      "isNew": true
+    },
+    {
+      "time": "16:05:12",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:05:11",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:05:09",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": false
+    },
+    {
+      "time": "16:05:07",
+      "sku": "SHHF36112",
+      "basket": 25,
+      "isNew": true
+    },
+    {
+      "time": "16:05:01",
+      "sku": "BFME16928",
+      "basket": 24,
+      "isNew": false
+    },
+    {
+      "time": "16:05:00",
+      "sku": "BFME16928",
+      "basket": 24,
+      "isNew": false
+    },
+    {
+      "time": "16:04:58",
+      "sku": "BFME16928",
+      "basket": 24,
+      "isNew": false
+    },
+    {
+      "time": "16:04:56",
+      "sku": "BFME16928",
+      "basket": 24,
+      "isNew": false
+    },
+    {
+      "time": "16:04:54",
+      "sku": "BFME16928",
+      "basket": 24,
+      "isNew": false
+    },
+    {
+      "time": "16:04:51",
+      "sku": "BFME16928",
+      "basket": 24,
+      "isNew": true
+    },
+    {
+      "time": "16:04:50",
+      "sku": "BFME16916",
+      "basket": 23,
+      "isNew": false
+    },
+    {
+      "time": "16:04:49",
+      "sku": "BFME16916",
+      "basket": 23,
+      "isNew": false
+    },
+    {
+      "time": "16:04:47",
+      "sku": "BFME16916",
+      "basket": 23,
+      "isNew": false
+    },
+    {
+      "time": "16:04:45",
+      "sku": "BFME16916",
+      "basket": 23,
+      "isNew": true
+    },
+    {
+      "time": "16:04:43",
+      "sku": "POQV17604",
+      "basket": 22,
+      "isNew": false
+    },
+    {
+      "time": "16:04:41",
+      "sku": "POQV17604",
+      "basket": 22,
+      "isNew": false
+    },
+    {
+      "time": "16:04:37",
+      "sku": "POQV17604",
+      "basket": 22,
+      "isNew": false
+    },
+    {
+      "time": "16:04:31",
+      "sku": "POQV17604",
+      "basket": 22,
+      "isNew": false
+    },
+    {
+      "time": "16:04:29",
+      "sku": "POQV17604",
+      "basket": 22,
+      "isNew": false
+    },
+    {
+      "time": "16:04:26",
+      "sku": "POQV17604",
+      "basket": 22,
+      "isNew": true
+    },
+    {
+      "time": "16:04:23",
+      "sku": "USIV35614",
+      "basket": 21,
+      "isNew": false
+    },
+    {
+      "time": "16:04:19",
+      "sku": "USIV35614",
+      "basket": 21,
+      "isNew": false
+    },
+    {
+      "time": "16:04:14",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:04:11",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:04:11",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:04:10",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:04:09",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:04:07",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:04:03",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:04:02",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:04:00",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:03:56",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:03:54",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:03:49",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:03:35",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:03:28",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "16:03:20",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": false
+    },
+    {
+      "time": "16:03:16",
+      "sku": "JYIO36578",
+      "basket": 16,
+      "isNew": false
+    },
+    {
+      "time": "16:03:11",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:03:09",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:03:04",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": false
+    },
+    {
+      "time": "16:02:58",
+      "sku": "AIOW01113",
+      "basket": 7,
+      "isNew": false
+    },
+    {
+      "time": "16:02:51",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "16:02:48",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "16:02:45",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "16:02:42",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:02:38",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "16:02:34",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "16:02:31",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "16:02:26",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "16:02:14",
+      "sku": "USIV35614",
+      "basket": 21,
+      "isNew": false
+    },
+    {
+      "time": "16:02:11",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "16:02:06",
+      "sku": "AIOW01113",
+      "basket": 7,
+      "isNew": false
+    },
+    {
+      "time": "16:01:59",
+      "sku": "JYIO36578",
+      "basket": 16,
+      "isNew": false
+    },
+    {
+      "time": "16:01:51",
+      "sku": "JHES36120",
+      "basket": 15,
+      "isNew": false
+    },
+    {
+      "time": "16:01:48",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "16:01:34",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "16:01:29",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "16:01:25",
+      "sku": "DSBN52970",
+      "basket": 8,
+      "isNew": false
+    },
+    {
+      "time": "16:01:20",
+      "sku": "USIV35614",
+      "basket": 21,
+      "isNew": true
+    },
+    {
+      "time": "16:01:15",
+      "sku": "DSBN52970",
+      "basket": 8,
+      "isNew": false
+    },
+    {
+      "time": "16:01:12",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "16:01:08",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "16:01:00",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "16:00:56",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": false
+    },
+    {
+      "time": "16:00:51",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "16:00:45",
+      "sku": "H15$",
+      "basket": 20,
+      "isNew": true
+    },
+    {
+      "time": "16:00:39",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "16:00:35",
+      "sku": "UVEZ33767",
+      "basket": 18,
+      "isNew": false
+    },
+    {
+      "time": "16:00:29",
+      "sku": "UVEZ33767",
+      "basket": 18,
+      "isNew": false
+    },
+    {
+      "time": "16:00:24",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "16:00:18",
+      "sku": "DSBN52970",
+      "basket": 8,
+      "isNew": false
+    },
+    {
+      "time": "16:00:07",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "16:00:04",
+      "sku": "GMEJ01372",
+      "basket": 19,
+      "isNew": false
+    },
+    {
+      "time": "15:59:59",
+      "sku": "GMEJ01372",
+      "basket": 19,
+      "isNew": true
+    },
+    {
+      "time": "15:59:45",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": false
+    },
+    {
+      "time": "15:59:42",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "15:59:39",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": false
+    },
+    {
+      "time": "15:59:33",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:59:26",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "15:59:22",
+      "sku": "JYIO36578",
+      "basket": 16,
+      "isNew": false
+    },
+    {
+      "time": "15:59:19",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "15:59:13",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": false
+    },
+    {
+      "time": "15:59:09",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "15:59:03",
+      "sku": "UVEZ33767",
+      "basket": 18,
+      "isNew": false
+    },
+    {
+      "time": "15:58:53",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": false
+    },
+    {
+      "time": "15:58:13",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "15:57:23",
+      "sku": "UVEZ33767",
+      "basket": 18,
+      "isNew": true
+    },
+    {
+      "time": "15:57:18",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "15:57:14",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "15:57:06",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "15:57:01",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "15:56:57",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "15:56:52",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": false
+    },
+    {
+      "time": "15:56:45",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": false
+    },
+    {
+      "time": "15:56:41",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "15:56:38",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": false
+    },
+    {
+      "time": "15:56:31",
+      "sku": "RRSM01243",
+      "basket": 17,
+      "isNew": true
+    },
+    {
+      "time": "15:56:29",
+      "sku": "JHES36120",
+      "basket": 15,
+      "isNew": false
+    },
+    {
+      "time": "15:56:15",
+      "sku": "JYIO36578",
+      "basket": 16,
+      "isNew": true
+    },
+    {
+      "time": "15:56:13",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "15:56:09",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": false
+    },
+    {
+      "time": "15:56:06",
+      "sku": "JHES36120",
+      "basket": 15,
+      "isNew": false
+    },
+    {
+      "time": "15:56:02",
+      "sku": "JHES36120",
+      "basket": 15,
+      "isNew": true
+    },
+    {
+      "time": "15:55:57",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": false
+    },
+    {
+      "time": "15:55:45",
+      "sku": "XSRH56393",
+      "basket": 2,
+      "isNew": false
+    },
+    {
+      "time": "15:55:42",
+      "sku": "XSRH56393",
+      "basket": 2,
+      "isNew": false
+    },
+    {
+      "time": "15:55:36",
+      "sku": "QVVJ16481",
+      "basket": 10,
+      "isNew": false
+    },
+    {
+      "time": "15:55:34",
+      "sku": "WTHW16992",
+      "basket": 3,
+      "isNew": false
+    },
+    {
+      "time": "15:55:31",
+      "sku": "WTHW16992",
+      "basket": 3,
+      "isNew": false
+    },
+    {
+      "time": "15:55:26",
+      "sku": "XSRH17731",
+      "basket": 1,
+      "isNew": false
+    },
+    {
+      "time": "15:55:22",
+      "sku": "XSRH17731",
+      "basket": 1,
+      "isNew": false
+    },
+    {
+      "time": "15:55:20",
+      "sku": "QVVJ16481",
+      "basket": 10,
+      "isNew": false
+    },
+    {
+      "time": "15:55:18",
+      "sku": "QVVJ16481",
+      "basket": 10,
+      "isNew": false
+    },
+    {
+      "time": "15:55:14",
+      "sku": "QVVJ16481",
+      "basket": 10,
+      "isNew": false
+    },
+    {
+      "time": "15:55:05",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:55:01",
+      "sku": "TZNQ01291",
+      "basket": 5,
+      "isNew": false
+    },
+    {
+      "time": "15:54:59",
+      "sku": "XSRH56393",
+      "basket": 2,
+      "isNew": false
+    },
+    {
+      "time": "15:54:56",
+      "sku": "XSRH56393",
+      "basket": 2,
+      "isNew": false
+    },
+    {
+      "time": "15:53:35",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:53:34",
+      "sku": "TXCY35481",
+      "basket": 9,
+      "isNew": false
+    },
+    {
+      "time": "15:53:31",
+      "sku": "TXCY35481",
+      "basket": 9,
+      "isNew": false
+    },
+    {
+      "time": "15:52:32",
+      "sku": "AIOW01113",
+      "basket": 7,
+      "isNew": false
+    },
+    {
+      "time": "15:52:29",
+      "sku": "TXCY35481",
+      "basket": 9,
+      "isNew": false
+    },
+    {
+      "time": "15:52:26",
+      "sku": "TXCY35481",
+      "basket": 9,
+      "isNew": false
+    },
+    {
+      "time": "15:52:21",
+      "sku": "TXCY35481",
+      "basket": 9,
+      "isNew": false
+    },
+    {
+      "time": "15:52:16",
+      "sku": "DSBN52970",
+      "basket": 8,
+      "isNew": false
+    },
+    {
+      "time": "15:52:13",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:52:10",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:52:02",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:51:59",
+      "sku": "AIOW01113",
+      "basket": 7,
+      "isNew": false
+    },
+    {
+      "time": "15:51:57",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:51:55",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:51:49",
+      "sku": "JOZI01386",
+      "basket": 6,
+      "isNew": false
+    },
+    {
+      "time": "15:51:42",
+      "sku": "TXCY35481",
+      "basket": 9,
+      "isNew": false
+    },
+    {
+      "time": "15:51:09",
+      "sku": "TXCY35481",
+      "basket": 9,
+      "isNew": false
+    },
+    {
+      "time": "15:51:02",
+      "sku": "TXCY35481",
+      "basket": 9,
+      "isNew": false
+    },
+    {
+      "time": "15:50:56",
+      "sku": "AIOW01113",
+      "basket": 7,
+      "isNew": false
+    },
+    {
+      "time": "15:50:46",
+      "sku": "TZNQ01291",
+      "basket": 5,
+      "isNew": false
+    },
+    {
+      "time": "15:50:43",
+      "sku": "TZNQ01291",
+      "basket": 5,
+      "isNew": false
+    },
+    {
+      "time": "15:50:40",
+      "sku": "XSRH56393",
+      "basket": 2,
+      "isNew": false
+    },
+    {
+      "time": "15:50:35",
+      "sku": "XTCB01301",
+      "basket": 14,
+      "isNew": true
+    },
+    {
+      "time": "15:50:30",
+      "sku": "XATV01197",
+      "basket": 13,
+      "isNew": true
+    },
+    {
+      "time": "15:50:28",
+      "sku": "FZRS01262",
+      "basket": 12,
+      "isNew": true
+    },
+    {
+      "time": "15:50:16",
+      "sku": "LLVI88948",
+      "basket": 11,
+      "isNew": true
+    },
+    {
+      "time": "15:50:05",
+      "sku": "AIOW01113",
+      "basket": 7,
+      "isNew": false
+    },
+    {
+      "time": "15:50:01",
+      "sku": "TZNQ01291",
+      "basket": 5,
+      "isNew": false
+    },
+    {
+      "time": "15:49:59",
+      "sku": "TZNQ01291",
+      "basket": 5,
+      "isNew": false
+    }
+  ],
+  "totalScans": 337
+}
