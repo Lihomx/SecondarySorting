@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>二次分拣系统</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+SC:wght@400;700;900&display=swap');
+
+:root {
+  --bg:#0a0c10; --surface:#111318; --border:#1e2330;
+  --accent:#00e5ff; --accent2:#ff6b35; --success:#00ff88;
+  --warn:#ffcc00; --text:#e0e8f0; --muted:#4a5568;
+  --radius:14px; --tap:54px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow-x:hidden}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Noto Sans SC',sans-serif;min-height:100vh;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(0,229,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,.035) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+.app{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:14px 12px 80px}
+
+/* Header */
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--border);
+}
+.logo{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--accent);letter-spacing:2px}
+.logo span{color:var(--accent2)}
+.stats{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--muted);text-align:right;line-height:1.9}
+.stats b{color:var(--accent)}
+
+/* Settings bar */
+.settings-bar{
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:10px 14px;margin-bottom:14px;
+}
+.set-label{font-size:.65rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;flex-shrink:0}
+.seg{display:flex;background:var(--bg);border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.seg button{
+  background:transparent;border:none;color:var(--muted);
+  font-size:.78rem;padding:7px 13px;cursor:pointer;transition:all .15s;
+  font-family:'Noto Sans SC',sans-serif;min-height:36px;
+}
+.seg button.on{background:var(--accent);color:var(--bg);font-weight:700}
+.spacer{flex:1}
+.btn-gh{
+  background:transparent;color:#8b949e;border:1px solid #30363d;
+  border-radius:8px;font-size:.75rem;padding:7px 14px;cursor:pointer;
+  font-family:'Noto Sans SC',sans-serif;min-height:36px;transition:all .12s;
+  white-space:nowrap;
+}
+.btn-gh:active{background:rgba(139,148,158,.12)}
+
+/* Scan card */
+.scan-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:16px;margin-bottom:14px;
+  position:relative;overflow:hidden;
+}
+.scan-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  animation:scanline 3s linear infinite;
+}
+@keyframes scanline{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.scan-label{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.scan-row{display:flex;gap:8px;align-items:stretch}
+#skuInput{
+  flex:1;background:var(--bg);border:1px solid var(--border);border-radius:10px;
+  color:var(--text);font-family:'Share Tech Mono',monospace;font-size:1.15rem;
+  padding:0 14px;height:var(--tap);outline:none;letter-spacing:2px;transition:border-color .2s;
+}
+#skuInput:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,255,.12)}
+#skuInput::placeholder{color:var(--muted);font-size:.82rem;letter-spacing:0}
+.btn-scan{
+  background:var(--accent);color:var(--bg);border:none;border-radius:10px;
+  font-weight:900;font-size:1.3rem;width:var(--tap);height:var(--tap);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .1s;flex-shrink:0;
+}
+.btn-scan:active{transform:scale(.93);background:#33ecff}
+
+/* Result banner */
+#resultBanner{
+  display:none;align-items:center;gap:14px;margin-top:12px;
+  padding:14px 18px;border-radius:12px;
+  background:rgba(0,255,136,.08);border:1px solid var(--success);
+  animation:popIn .22s cubic-bezier(.34,1.56,.64,1);
+}
+#resultBanner.warn{background:rgba(255,204,0,.08);border-color:var(--warn)}
+@keyframes popIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+.basket-big{
+  font-family:'Share Tech Mono',monospace;font-size:3.4rem;font-weight:900;
+  color:var(--success);line-height:1;min-width:64px;text-align:center;
+}
+#resultBanner.warn .basket-big{color:var(--warn)}
+.result-info{flex:1}
+.result-sku{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:2px;margin-bottom:4px}
+.result-msg{font-size:1.05rem;font-weight:700;color:var(--text)}
+.result-new{font-size:.72rem;color:var(--accent2);margin-top:4px}
+
+/* Section title */
+.section-title{
+  font-size:.58rem;letter-spacing:4px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* Toolbar */
+.toolbar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.btn{
+  background:var(--accent);color:var(--bg);border:none;border-radius:8px;
+  font-weight:700;font-size:.82rem;padding:10px 18px;cursor:pointer;
+  transition:all .12s;white-space:nowrap;min-height:42px;
+  font-family:'Noto Sans SC',sans-serif;
+}
+.btn:active{transform:scale(.95)}
+.btn-outline{background:transparent;color:var(--accent2);border:1px solid var(--accent2)}
+.btn-outline:active{background:rgba(255,107,53,.12)}
+
+/* Basket grid */
+#basketGrid{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:26px}
+.basket-cell{
+  width:80px;height:80px;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;transition:border-color .2s,box-shadow .2s,transform .15s;
+}
+.basket-cell.active{
+  border-color:var(--success);box-shadow:0 0 18px rgba(0,255,136,.3);
+  transform:scale(1.08);z-index:2;
+}
+.basket-cell.new-basket{
+  border-color:var(--accent2);box-shadow:0 0 18px rgba(255,107,53,.3);
+  animation:newPulse .5s ease;
+}
+@keyframes newPulse{
+  0%{transform:scale(.75);opacity:0}60%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}
+}
+.basket-num{font-family:'Share Tech Mono',monospace;font-size:1.55rem;font-weight:700;color:var(--text);line-height:1}
+.basket-cell.active .basket-num{color:var(--success)}
+.basket-cell.new-basket .basket-num{color:var(--accent2)}
+.basket-sku-label{font-size:.5rem;color:var(--muted);margin-top:4px;max-width:74px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.basket-count{position:absolute;top:5px;right:7px;font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--muted)}
+
+/* History */
+#historyList{display:flex;flex-direction:column;gap:5px}
+.history-row{
+  display:flex;align-items:center;gap:10px;padding:9px 12px;
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  font-family:'Share Tech Mono',monospace;font-size:.78rem;
+  opacity:0;animation:fadeSlide .18s forwards;
+}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.h-time{color:var(--muted);width:54px;flex-shrink:0}
+.h-sku{color:var(--accent);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:1px}
+.h-basket{color:var(--success);font-weight:700;font-size:.9rem;width:34px;text-align:center;flex-shrink:0}
+.h-new{color:var(--accent2);font-size:.65rem;flex-shrink:0}
+
+/* Toast */
+#toast{
+  position:fixed;bottom:20px;left:50%;
+  transform:translateX(-50%) translateY(90px);
+  background:#1a1f2e;border:1px solid var(--border);
+  color:var(--text);padding:10px 22px;border-radius:22px;
+  font-size:.82rem;transition:transform .28s cubic-bezier(.34,1.56,.64,1);
+  z-index:200;white-space:nowrap;max-width:90vw;text-align:center;
+}
+#toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Modal */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,.72);align-items:flex-end;justify-content:center;
+}
+.modal-overlay.open{display:flex;animation:mfade .15s}
+@keyframes mfade{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px 20px 0 0;padding:24px 20px 40px;
+  width:100%;max-width:640px;animation:mup .2s;
+}
+@keyframes mup{from{transform:translateY(60px)}to{transform:translateY(0)}}
+.modal h3{font-size:1rem;margin-bottom:16px}
+.modal-input{
+  width:100%;background:var(--bg);border:1px solid var(--border);
+  border-radius:10px;color:var(--text);font-family:'Share Tech Mono',monospace;
+  font-size:.82rem;padding:13px 14px;margin-bottom:10px;outline:none;
+  min-height:48px;
+}
+.modal-input:focus{border-color:var(--accent)}
+.modal-input::placeholder{color:var(--muted)}
+.modal-note{font-size:.7rem;color:var(--muted);margin-bottom:18px;line-height:1.7}
+.modal-note code{color:var(--accent);background:rgba(0,229,255,.08);padding:1px 5px;border-radius:4px}
+.modal-actions{display:flex;gap:10px}
+.modal-actions .btn{flex:1;min-height:48px;font-size:.88rem}
+
+.empty{color:var(--muted);font-size:.82rem;padding:10px 0}
+
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}40%{transform:translateX(8px)}
+  60%{transform:translateX(-5px)}80%{transform:translateX(5px)}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">SORT<span>·</span>SYS &nbsp;分拣</div>
+    <div class="stats">
+      篮:<b id="sB">0</b> &nbsp;扫:<b id="sS">0</b> &nbsp;SKU:<b id="sK">0</b>
+    </div>
+  </header>
+
+  <!-- Settings bar -->
+  <div class="settings-bar">
+    <span class="set-label">🔊 语音</span>
+    <div class="seg">
+      <button id="voiceOff" onclick="setVoice('off')">关</button>
+      <button id="voiceZh"  onclick="setVoice('zh')">中文</button>
+      <button id="voiceEs"  onclick="setVoice('es')">西语</button>
+    </div>
+    <span class="spacer"></span>
+    <button class="btn-gh" onclick="openGhModal()">💾 存 GitHub</button>
+  </div>
+
+  <!-- Scan card -->
+  <div class="scan-card">
+    <div class="scan-label">▸ 扫描 / 输入 SKU 条码</div>
+    <div class="scan-row">
+      <input id="skuInput" type="text" inputmode="text"
+        placeholder="扫描枪 或 手动输入…" autocomplete="off" spellcheck="false" autofocus>
+      <button class="btn-scan" onclick="handleScan()">▶</button>
+    </div>
+    <div id="resultBanner">
+      <div class="basket-big" id="bannerNum">—</div>
+      <div class="result-info">
+        <div class="result-sku" id="bannerSku"></div>
+        <div class="result-msg" id="bannerMsg"></div>
+        <div class="result-new" id="bannerNew"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Baskets -->
+  <div class="section-title">分拣篮子</div>
+  <div class="toolbar">
+    <button class="btn" style="font-size:.78rem;padding:10px 14px" onclick="addBasket()">＋ 新增篮子</button>
+    <button class="btn btn-outline" onclick="confirmReset()">↺ 重置全部</button>
+  </div>
+  <div id="basketGrid"></div>
+
+  <!-- History -->
+  <div class="section-title">扫描记录</div>
+  <div id="historyList"><div class="empty">暂无记录</div></div>
+
+</div>
+
+<div id="toast"></div>
+
+<!-- GitHub Modal -->
+<div class="modal-overlay" id="ghModal" onclick="bgClose(event)">
+  <div class="modal">
+    <h3>💾 备份数据到 GitHub</h3>
+    <input class="modal-input" id="ghToken" type="password"
+      placeholder="GitHub Personal Access Token  (ghp_...)" autocomplete="off">
+    <input class="modal-input" id="ghRepo" type="text"
+      placeholder="用户名/仓库名  例: alice/warehouse-sort" autocomplete="off">
+    <div class="modal-note">
+      Token 需要 <code>repo</code> 权限（Settings → Developer settings → Tokens）。<br>
+      备份存入 <code>backup/</code> 文件夹，文件名：<code>backup_YYYY-MM-DD_HH-MM.json</code><br>
+      Token 仅保存在本机浏览器，不会上传到任何服务器。
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeGhModal()">取消</button>
+      <button class="btn" id="ghSaveBtn" onclick="doGithubSave()">确认上传</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══ STATE ═══════════════════════════════════════════════════════════════════
+const SK = 'sortsys_v3';
+function loadState(){
+  try{ const r=localStorage.getItem(SK); if(r) return JSON.parse(r); }catch(e){}
+  return {baskets:[],skuMap:{},history:[],totalScans:0,voice:'off',ghToken:'',ghRepo:''};
+}
+function saveState(){ localStorage.setItem(SK,JSON.stringify(state)); }
+let state = loadState();
+
+// ═══ VOICE ═══════════════════════════════════════════════════════════════════
+function speakNumber(num){
+  if(state.voice==='off' || !window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const isZh = state.voice==='zh';
+  const u = new SpeechSynthesisUtterance(isZh ? numToZh(num) : numToEs(num));
+  u.lang  = isZh ? 'zh-CN' : 'es-ES';
+  u.rate  = 0.9;
+  u.pitch = 1;
+  // prefer a native voice
+  const vs = window.speechSynthesis.getVoices();
+  const pref = vs.find(v => v.lang.startsWith(isZh ? 'zh' : 'es'));
+  if(pref) u.voice = pref;
+  window.speechSynthesis.speak(u);
+}
+
+// Chinese: read each digit separately for maximum clarity on warehouse floor
+function numToZh(n){
+  return String(n).split('').join(' ');
+}
+
+// Spanish: natural number words up to 99; digit-by-digit above
+function numToEs(n){
+  const ones=['cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve',
+               'diez','once','doce','trece','catorce','quince',
+               'dieciséis','diecisiete','dieciocho','diecinueve'];
+  const tens=['','','veinte','treinta','cuarenta','cincuenta',
+              'sesenta','setenta','ochenta','noventa'];
+  if(n < 20) return ones[n];
+  if(n < 100){
+    const t=Math.floor(n/10), o=n%10;
+    return o===0 ? tens[t] : tens[t]+' y '+ones[o];
+  }
+  // 100+: digit by digit
+  return String(n).split('').map(d=>ones[parseInt(d)]).join(' ');
+}
+
+function setVoice(v){
+  state.voice = v; saveState();
+  document.querySelectorAll('.seg button').forEach(b=>b.classList.remove('on'));
+  const map={off:'voiceOff',zh:'voiceZh',es:'voiceEs'};
+  document.getElementById(map[v]).classList.add('on');
+  if(v!=='off') setTimeout(()=>speakNumber(1),120);
+}
+
+// Pre-load browser voices
+if(window.speechSynthesis){
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = ()=>speechSynthesis.getVoices();
+}
+
+// ═══ BASKETS ══════════════════════════════════════════════════════════════════
+function nextNum(){ return state.baskets.length===0 ? 1 : Math.max(...state.baskets.map(b=>b.num))+1; }
+
+function addBasket(sku=null){
+  const num=nextNum();
+  const b={id:Date.now(),num,sku:sku||null,count:0};
+  state.baskets.push(b); saveState(); renderBaskets();
+  if(!sku) toast('已新增篮子 #'+num);
+  return b;
+}
+
+// ═══ SCAN ══════════════════════════════════════════════════════════════════════
+function handleScan(){
+  const raw = document.getElementById('skuInput').value.trim();
+  if(!raw){ shakeInput(); return; }
+  const sku = raw.toUpperCase();
+  document.getElementById('skuInput').value = '';
+  document.getElementById('skuInput').focus();
+
+  state.totalScans++;
+  let isNew=false, basket;
+
+  if(state.skuMap[sku] !== undefined){
+    basket = state.baskets.find(b=>b.num===state.skuMap[sku]);
+    if(basket) basket.count++;
+  } else {
+    basket = addBasket(sku);
+    state.skuMap[sku] = basket.num;
+    basket.sku = sku; basket.count = 1; isNew = true;
+  }
+
+  const ts = new Date().toTimeString().slice(0,8);
+  state.history.unshift({time:ts, sku, basket:basket.num, isNew});
+  if(state.history.length>300) state.history.pop();
+  saveState();
+
+  showResult(sku, basket.num, isNew);
+  highlightBasket(basket.num);
+  renderHistory(); renderStats();
+  speakNumber(basket.num);
+}
+
+function showResult(sku, num, isNew){
+  const b = document.getElementById('resultBanner');
+  b.style.display = 'flex';
+  // force reflow to replay animation
+  void b.offsetWidth;
+  b.className = isNew ? 'warn' : '';
+  document.getElementById('bannerNum').textContent = '#'+num;
+  document.getElementById('bannerSku').textContent = sku;
+  document.getElementById('bannerMsg').textContent = isNew
+    ? '新 SKU — 自动分配篮子 #'+num
+    : '请放入篮子 #'+num;
+  document.getElementById('bannerNew').textContent = isNew ? '★ 已创建新篮子' : '';
+}
+
+function highlightBasket(num){
+  document.querySelectorAll('.basket-cell').forEach(el=>{
+    el.classList.remove('active');
+    if(parseInt(el.dataset.num)===num){
+      el.classList.add('active');
+      el.scrollIntoView({block:'nearest',behavior:'smooth'});
+    }
+  });
+  setTimeout(()=>document.querySelectorAll('.basket-cell').forEach(el=>el.classList.remove('active')), 3500);
+}
+
+// ═══ RENDER ════════════════════════════════════════════════════════════════════
+function renderBaskets(){
+  const g = document.getElementById('basketGrid'); g.innerHTML='';
+  if(!state.baskets.length){
+    g.innerHTML='<div class="empty">暂无篮子，扫描第一个 SKU 自动创建</div>'; return;
+  }
+  state.baskets.forEach(b=>{
+    const el=document.createElement('div');
+    el.className='basket-cell'; el.dataset.num=b.num;
+    el.innerHTML=`<div class="basket-count">${b.count||0}</div>
+      <div class="basket-num">#${b.num}</div>
+      <div class="basket-sku-label">${b.sku||'—'}</div>`;
+    g.appendChild(el);
+  });
+}
+
+function renderHistory(){
+  const l=document.getElementById('historyList'); l.innerHTML='';
+  if(!state.history.length){ l.innerHTML='<div class="empty">暂无记录</div>'; return; }
+  state.history.slice(0,60).forEach((h,i)=>{
+    const el=document.createElement('div');
+    el.className='history-row'; el.style.animationDelay=i===0?'0ms':(i*7)+'ms';
+    el.innerHTML=`<span class="h-time">${h.time}</span>
+      <span class="h-sku">${h.sku}</span>
+      <span class="h-basket">#${h.basket}</span>
+      ${h.isNew?'<span class="h-new">NEW</span>':''}`;
+    l.appendChild(el);
+  });
+}
+
+function renderStats(){
+  document.getElementById('sB').textContent = state.baskets.length;
+  document.getElementById('sS').textContent = state.totalScans;
+  document.getElementById('sK').textContent = Object.keys(state.skuMap).length;
+}
+
+// ═══ UTILS ═══════════════════════════════════════════════════════════════════
+function shakeInput(){
+  const i=document.getElementById('skuInput');
+  i.style.animation='none'; i.offsetHeight; i.style.animation='shake .3s';
+}
+function confirmReset(){
+  if(confirm('确定要清除所有篮子和记录吗？')){
+    state.baskets=[]; state.skuMap={}; state.history=[]; state.totalScans=0;
+    saveState();
+    document.getElementById('resultBanner').style.display='none';
+    renderBaskets(); renderHistory(); renderStats(); toast('已重置所有数据');
+  }
+}
+let _tt;
+function toast(msg,dur=2600){
+  const t=document.getElementById('toast'); t.textContent=msg;
+  t.classList.add('show'); clearTimeout(_tt);
+  _tt=setTimeout(()=>t.classList.remove('show'),dur);
+}
+
+// ═══ GITHUB SAVE ══════════════════════════════════════════════════════════════
+function openGhModal(){
+  document.getElementById('ghToken').value = state.ghToken||'';
+  document.getElementById('ghRepo').value  = state.ghRepo||'';
+  document.getElementById('ghModal').classList.add('open');
+}
+function closeGhModal(){ document.getElementById('ghModal').classList.remove('open'); }
+function bgClose(e){ if(e.target===document.getElementById('ghModal')) closeGhModal(); }
+
+async function doGithubSave(){
+  const token = document.getElementById('ghToken').value.trim();
+  const repo  = document.getElementById('ghRepo').value.trim();
+  if(!token){ toast('请填写 GitHub Token'); return; }
+  if(!repo || !repo.includes('/')){ toast('仓库格式：用户名/仓库名'); return; }
+
+  state.ghToken=token; state.ghRepo=repo; saveState();
+
+  const now=new Date();
+  const p=n=>String(n).padStart(2,'0');
+  const fname=`backup_${now.getFullYear()}-${p(now.getMonth()+1)}-${p(now.getDate())}_${p(now.getHours())}-${p(now.getMinutes())}.json`;
+  const filePath=`backup/${fname}`;
+
+  const payload=JSON.stringify({
+    exportedAt: now.toISOString(),
+    baskets:    state.baskets,
+    skuMap:     state.skuMap,
+    history:    state.history,
+    totalScans: state.totalScans
+  }, null, 2);
+
+  // btoa with unicode support
+  const encoded = btoa(unescape(encodeURIComponent(payload)));
+  const apiUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+
+  const btn=document.getElementById('ghSaveBtn');
+  btn.textContent='上传中…'; btn.disabled=true;
+  toast('正在上传到 GitHub…', 10000);
+
+  try{
+    const res = await fetch(apiUrl,{
+      method:'PUT',
+      headers:{
+        'Authorization':'token '+token,
+        'Content-Type':'application/json',
+        'Accept':'application/vnd.github+json'
+      },
+      body: JSON.stringify({ message:`backup: ${fname}`, content: encoded })
+    });
+    const data = await res.json();
+    if(res.ok){
+      closeGhModal();
+      toast(`✅ 备份成功！  backup/${fname}`);
+    } else {
+      toast(`❌ 失败: ${data.message||res.status}`, 5000);
+    }
+  } catch(e){
+    toast('❌ 网络错误: '+e.message, 5000);
+  } finally{
+    btn.textContent='确认上传'; btn.disabled=false;
+  }
+}
+
+// ═══ INPUT ════════════════════════════════════════════════════════════════════
+document.getElementById('skuInput').addEventListener('keydown', e=>{
+  if(e.key==='Enter') handleScan();
+});
+
+// ═══ INIT ═════════════════════════════════════════════════════════════════════
+// Restore voice button state
+(()=>{
+  const map={off:'voiceOff',zh:'voiceZh',es:'voiceEs'};
+  const v=state.voice||'off';
+  document.getElementById(map[v]||'voiceOff').classList.add('on');
+})();
+
+renderBaskets(); renderHistory(); renderStats();
+</script>
+</body>
+</html>
