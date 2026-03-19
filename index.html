@@ -11,34 +11,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+SC:wght@400;700;900&display=swap');
 
 :root {
-  --bg:      #f5f6f8;
-  --white:   #ffffff;
-  --border:  #dde1e8;
-  --border2: #c8cdd8;
-  --accent:  #1a56db;
-  --accent2: #e84c2b;
-  --success: #0a7c42;
-  --success-bg: #e6f6ee;
-  --success-border: #5cb885;
-  --warn:    #b45309;
-  --warn-bg: #fff8e6;
-  --warn-border: #f5a623;
-  --text:    #1a1d23;
-  --muted:   #6b7280;
-  --muted2:  #9ca3af;
-  --radius:  12px;
-  --tap:     52px;
-  --shadow:  0 1px 4px rgba(0,0,0,.08), 0 2px 12px rgba(0,0,0,.04);
+  --bg:#f5f6f8; --white:#ffffff; --border:#dde1e8; --border2:#c8cdd8;
+  --accent:#1a56db; --accent2:#e84c2b; --accent3:#7c3aed;
+  --success:#0a7c42; --success-bg:#e6f6ee; --success-bd:#5cb885;
+  --warn:#b45309;   --warn-bg:#fff8e6;    --warn-bd:#f5a623;
+  --error:#c0392b;  --error-bg:#fef0ee;   --error-bd:#e88;
+  --text:#1a1d23; --muted:#6b7280; --muted2:#9ca3af;
+  --radius:12px; --tap:52px;
+  --shadow:0 1px 4px rgba(0,0,0,.08),0 2px 12px rgba(0,0,0,.04);
 }
-
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow-x:hidden}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;min-height:100vh;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;min-height:100vh}
 
-.app{max-width:640px;margin:0 auto;padding:14px 12px 80px}
+/* ── Page system ── */
+.page{display:none;max-width:640px;margin:0 auto;padding:14px 12px 80px}
+.page.active{display:block}
+
+/* ── Bottom nav ── */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  background:var(--white);border-top:1px solid var(--border);
+  display:flex;justify-content:space-around;
+  box-shadow:0 -2px 12px rgba(0,0,0,.07);
+}
+.nav-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:8px 4px 10px;border:none;background:transparent;cursor:pointer;
+  color:var(--muted2);font-size:.62rem;gap:3px;font-family:'Noto Sans SC',sans-serif;
+  transition:color .15s;min-height:56px;
+}
+.nav-btn .nav-icon{font-size:1.3rem;line-height:1}
+.nav-btn.active{color:var(--accent);font-weight:700}
+
+/* ── Card ── */
+.card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:16px;margin-bottom:12px;
+  box-shadow:var(--shadow);
+}
 
 /* ── Header ── */
-header{
+.top-bar{
   display:flex;align-items:center;justify-content:space-between;
   background:var(--white);border:1px solid var(--border);
   border-radius:var(--radius);padding:12px 16px;margin-bottom:12px;
@@ -46,17 +60,17 @@ header{
 }
 .logo{font-family:'Share Tech Mono',monospace;font-size:1rem;color:var(--accent);letter-spacing:2px;font-weight:700}
 .logo span{color:var(--accent2)}
-.stats{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--muted);text-align:right;line-height:1.9}
+.stats{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--muted);text-align:right;line-height:2}
 .stats b{color:var(--accent);font-weight:700}
 
-/* ── Settings bar ── */
-.settings-bar{
-  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+/* ── Quick settings bar ── */
+.qbar{
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap;
   background:var(--white);border:1px solid var(--border);
   border-radius:var(--radius);padding:10px 14px;margin-bottom:12px;
   box-shadow:var(--shadow);
 }
-.set-label{font-size:.65rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;flex-shrink:0;font-weight:600}
+.qlabel{font-size:.62rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;flex-shrink:0;font-weight:600}
 .seg{display:flex;background:var(--bg);border-radius:8px;overflow:hidden;border:1px solid var(--border2)}
 .seg button{
   background:transparent;border:none;color:var(--muted);
@@ -64,35 +78,31 @@ header{
   font-family:'Noto Sans SC',sans-serif;min-height:36px;
 }
 .seg button.on{background:var(--accent);color:#fff;font-weight:700}
+.seg button.on-orange{background:var(--accent2);color:#fff;font-weight:700}
 .spacer{flex:1}
-.btn-gh{
-  background:var(--bg);color:var(--muted);border:1px solid var(--border2);
-  border-radius:8px;font-size:.75rem;padding:7px 14px;cursor:pointer;
-  font-family:'Noto Sans SC',sans-serif;min-height:36px;transition:all .12s;white-space:nowrap;
-}
-.btn-gh:active{background:var(--border)}
 
 /* ── Scan card ── */
-.scan-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--radius);padding:16px;margin-bottom:12px;
-  box-shadow:var(--shadow);position:relative;overflow:hidden;
-}
+.scan-card{position:relative;overflow:hidden}
 .scan-card::after{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg,var(--accent),#60a5fa,var(--accent));
   background-size:200%;animation:scanbar 2.5s linear infinite;
 }
 @keyframes scanbar{0%{background-position:0%}100%{background-position:200%}}
-.scan-label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600}
+.scan-label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600;display:flex;align-items:center;gap:8px}
+.scan-label .scan-mode-badge{
+  font-size:.6rem;padding:2px 8px;border-radius:10px;letter-spacing:0;
+  background:#e6f0ff;color:var(--accent);border:1px solid #b3cfff;font-weight:700;
+}
+.scan-label .scan-mode-badge.free{background:#fff3f0;color:var(--accent2);border-color:#fecdba}
 .scan-row{display:flex;gap:8px;align-items:stretch}
 #skuInput{
   flex:1;background:var(--bg);border:2px solid var(--border2);border-radius:10px;
-  color:var(--text);font-family:'Share Tech Mono',monospace;font-size:1.15rem;
-  padding:0 14px;height:var(--tap);outline:none;letter-spacing:2px;transition:border-color .18s;
+  color:var(--text);font-family:'Share Tech Mono',monospace;font-size:1.1rem;
+  padding:0 14px;height:var(--tap);outline:none;letter-spacing:1px;transition:border-color .18s;
 }
 #skuInput:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(26,86,219,.1)}
-#skuInput::placeholder{color:var(--muted2);font-size:.82rem;letter-spacing:0;font-family:'Noto Sans SC',sans-serif}
+#skuInput::placeholder{color:var(--muted2);font-size:.8rem;letter-spacing:0;font-family:'Noto Sans SC',sans-serif}
 .btn-scan{
   background:var(--accent);color:#fff;border:none;border-radius:10px;
   font-weight:900;font-size:1.4rem;width:var(--tap);height:var(--tap);
@@ -101,116 +111,178 @@ header{
 }
 .btn-scan:active{transform:scale(.93);box-shadow:none}
 
+/* parsed preview */
+.parsed-preview{
+  margin-top:8px;padding:7px 12px;background:var(--bg);
+  border-radius:8px;border:1px solid var(--border);
+  font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--muted);
+  display:none;word-break:break-all;
+}
+.parsed-preview b{color:var(--accent)}
+
 /* ── Result banner ── */
 #resultBanner{
   display:none;align-items:center;gap:16px;margin-top:12px;
   padding:16px 18px;border-radius:10px;
-  background:var(--success-bg);border:2px solid var(--success-border);
+  background:var(--success-bg);border:2px solid var(--success-bd);
 }
-#resultBanner.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+#resultBanner.warn{background:var(--warn-bg);border-color:var(--warn-bd)}
+#resultBanner.err{background:var(--error-bg);border-color:var(--error-bd)}
 #resultBanner.anim{animation:popIn .22s cubic-bezier(.34,1.56,.64,1)}
 @keyframes popIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
-
-.basket-big{
-  font-family:'Share Tech Mono',monospace;font-size:3.6rem;font-weight:900;
-  color:var(--success);line-height:1;min-width:72px;text-align:center;
-}
+.basket-big{font-family:'Share Tech Mono',monospace;font-size:3.4rem;font-weight:900;color:var(--success);line-height:1;min-width:68px;text-align:center}
 #resultBanner.warn .basket-big{color:var(--warn)}
+#resultBanner.err  .basket-big{color:var(--error);font-size:2rem}
 .result-info{flex:1;min-width:0}
-.result-sku{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:2px;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.result-msg{font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.3}
-.result-new{font-size:.72rem;color:var(--accent2);margin-top:4px;font-weight:600}
+.result-raw{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted2);letter-spacing:1px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.result-sku{font-family:'Share Tech Mono',monospace;font-size:.75rem;color:var(--muted);letter-spacing:1px;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.result-msg{font-size:1rem;font-weight:700;color:var(--text);line-height:1.3}
+.result-sub{font-size:.72rem;color:var(--accent2);margin-top:4px;font-weight:600}
 
 /* ── Section title ── */
-.section-title{
+.sec-title{
   font-size:.62rem;letter-spacing:3px;text-transform:uppercase;
   color:var(--muted);margin-bottom:10px;font-weight:600;
   display:flex;align-items:center;gap:8px;
 }
-.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
 
-/* ── Toolbar ── */
+/* ── Buttons ── */
 .toolbar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .btn{
   background:var(--accent);color:#fff;border:none;border-radius:8px;
-  font-weight:700;font-size:.82rem;padding:10px 18px;cursor:pointer;
+  font-weight:700;font-size:.82rem;padding:10px 16px;cursor:pointer;
   transition:all .12s;white-space:nowrap;min-height:42px;
-  font-family:'Noto Sans SC',sans-serif;box-shadow:0 1px 4px rgba(26,86,219,.25);
+  font-family:'Noto Sans SC',sans-serif;box-shadow:0 1px 4px rgba(26,86,219,.22);
 }
 .btn:active{transform:scale(.96);box-shadow:none}
-.btn-outline{background:#fff;color:var(--accent2);border:1.5px solid var(--accent2);box-shadow:none}
-.btn-outline:active{background:#fff3f0}
+.btn-red{background:#fff;color:var(--accent2);border:1.5px solid var(--accent2);box-shadow:none}
+.btn-red:active{background:#fff3f0}
+.btn-gray{background:#fff;color:var(--muted);border:1.5px solid var(--border2);box-shadow:none}
+.btn-gray:active{background:var(--bg)}
+.btn-sm{font-size:.75rem;padding:7px 12px;min-height:34px}
+.btn-purple{background:var(--accent3);box-shadow:0 1px 4px rgba(124,58,237,.22)}
 
 /* ── Basket grid ── */
 #basketGrid{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
 .basket-cell{
-  width:82px;height:82px;
-  background:var(--white);border:2px solid var(--border);
+  width:82px;height:82px;background:var(--white);border:2px solid var(--border);
   border-radius:12px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  position:relative;transition:all .18s;
-  box-shadow:var(--shadow);
+  position:relative;transition:all .18s;box-shadow:var(--shadow);
 }
-.basket-cell.active{
-  border-color:var(--success-border);
-  background:var(--success-bg);
-  box-shadow:0 0 0 3px rgba(10,124,66,.15);
-  transform:scale(1.08);z-index:2;
-}
+.basket-cell.active{border-color:var(--success-bd);background:var(--success-bg);box-shadow:0 0 0 3px rgba(10,124,66,.15);transform:scale(1.08);z-index:2}
 .basket-cell.new-anim{animation:newPop .45s cubic-bezier(.34,1.56,.64,1)}
-@keyframes newPop{
-  0%{transform:scale(.6);opacity:0}
-  100%{transform:scale(1);opacity:1}
-}
-.basket-num{
-  font-family:'Share Tech Mono',monospace;font-size:1.6rem;font-weight:900;
-  color:var(--text);line-height:1;
-}
+@keyframes newPop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+.basket-num{font-family:'Share Tech Mono',monospace;font-size:1.6rem;font-weight:900;color:var(--text);line-height:1}
 .basket-cell.active .basket-num{color:var(--success)}
-.basket-sku-label{
-  font-size:.48rem;color:var(--muted);margin-top:4px;
-  max-width:74px;text-align:center;overflow:hidden;
-  text-overflow:ellipsis;white-space:nowrap;
-}
-.basket-count{
-  position:absolute;top:5px;right:7px;
-  font-family:'Share Tech Mono',monospace;font-size:.6rem;
-  color:var(--muted2);font-weight:700;
-}
+.basket-sku-label{font-size:.48rem;color:var(--muted);margin-top:4px;max-width:74px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.basket-count{position:absolute;top:5px;right:7px;font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--muted2);font-weight:700}
 
 /* ── History ── */
 #historyList{display:flex;flex-direction:column;gap:6px}
-.history-row{
-  display:flex;align-items:center;gap:10px;padding:9px 12px;
+.h-row{
+  display:flex;align-items:center;gap:8px;padding:9px 12px;
   background:var(--white);border:1px solid var(--border);border-radius:8px;
-  font-family:'Share Tech Mono',monospace;font-size:.78rem;
+  font-family:'Share Tech Mono',monospace;font-size:.75rem;
   box-shadow:0 1px 3px rgba(0,0,0,.04);
   opacity:0;animation:fadeSlide .18s forwards;
 }
 @keyframes fadeSlide{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
-.h-time{color:var(--muted2);width:56px;flex-shrink:0}
-.h-sku{color:var(--accent);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.5px}
-.h-basket{color:var(--success);font-weight:700;font-size:.92rem;width:36px;text-align:center;flex-shrink:0}
-.h-new{
-  background:#fff3f0;color:var(--accent2);font-size:.62rem;font-weight:700;
-  padding:2px 6px;border-radius:4px;flex-shrink:0;border:1px solid #fecdba;
-}
+.h-time{color:var(--muted2);width:54px;flex-shrink:0}
+.h-sku{color:var(--accent);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.h-basket{color:var(--success);font-weight:700;font-size:.9rem;width:34px;text-align:center;flex-shrink:0}
+.h-tag{font-size:.6rem;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0}
+.h-tag.new{background:#fff3f0;color:var(--accent2);border:1px solid #fecdba}
+.h-tag.blocked{background:#fef0ee;color:var(--error);border:1px solid #e88}
+.h-tag.free{background:#f5f0ff;color:var(--accent3);border:1px solid #c4b5fd}
 
 /* ── Toast ── */
 #toast{
-  position:fixed;bottom:20px;left:50%;
-  transform:translateX(-50%) translateY(90px);
-  background:var(--text);color:#fff;padding:10px 22px;
-  border-radius:22px;font-size:.82rem;
-  transition:transform .28s cubic-bezier(.34,1.56,.64,1);
-  z-index:200;white-space:nowrap;max-width:90vw;text-align:center;
+  position:fixed;bottom:66px;left:50%;transform:translateX(-50%) translateY(90px);
+  background:var(--text);color:#fff;padding:10px 22px;border-radius:22px;
+  font-size:.82rem;transition:transform .28s cubic-bezier(.34,1.56,.64,1);
+  z-index:500;white-space:nowrap;max-width:90vw;text-align:center;
   box-shadow:0 4px 16px rgba(0,0,0,.2);
 }
 #toast.show{transform:translateX(-50%) translateY(0)}
 
-/* ── Modal ── */
+/* ══════════════════════════════════════
+   SETTINGS PAGE
+══════════════════════════════════════ */
+.set-section{margin-bottom:20px}
+.set-section-title{
+  font-size:.65rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.set-section-title::after{content:'';flex:1;height:1px;background:#dbeafe}
+.set-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 0;border-bottom:1px solid var(--border);gap:12px;
+}
+.set-row:last-child{border-bottom:none}
+.set-row-info{flex:1}
+.set-row-title{font-size:.88rem;font-weight:700;margin-bottom:2px}
+.set-row-desc{font-size:.72rem;color:var(--muted);line-height:1.5}
+/* toggle switch */
+.toggle{position:relative;width:44px;height:26px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-track{
+  position:absolute;inset:0;background:var(--border2);border-radius:13px;
+  transition:background .2s;cursor:pointer;
+}
+.toggle input:checked + .toggle-track{background:var(--accent)}
+.toggle-track::after{
+  content:'';position:absolute;top:3px;left:3px;
+  width:20px;height:20px;background:#fff;border-radius:50%;
+  transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+.toggle input:checked + .toggle-track::after{transform:translateX(18px)}
+
+/* text input in settings */
+.set-input{
+  width:100%;background:var(--bg);border:1.5px solid var(--border2);
+  border-radius:8px;color:var(--text);font-family:'Share Tech Mono',monospace;
+  font-size:.82rem;padding:10px 12px;outline:none;margin-top:8px;
+}
+.set-input:focus{border-color:var(--accent);background:#fff}
+.set-input::placeholder{color:var(--muted2);font-family:'Noto Sans SC',sans-serif}
+.set-textarea{min-height:100px;resize:vertical;font-size:.78rem;line-height:1.6}
+
+/* Rules list */
+.rules-list{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.rule-item{
+  display:flex;align-items:center;gap:8px;padding:9px 12px;
+  background:var(--bg);border:1px solid var(--border);border-radius:8px;
+}
+.rule-item .rule-type{
+  font-size:.62rem;font-weight:700;padding:2px 7px;border-radius:6px;flex-shrink:0;
+}
+.rule-item .rule-type.json{background:#e6f0ff;color:var(--accent);border:1px solid #b3cfff}
+.rule-item .rule-type.regex{background:#f5f0ff;color:var(--accent3);border:1px solid #c4b5fd}
+.rule-item .rule-type.prefix{background:#e6f6ee;color:var(--success);border:1px solid #a3d9b5}
+.rule-item .rule-type.trim{background:#fff8e6;color:var(--warn);border:1px solid #f5d58a}
+.rule-item .rule-val{flex:1;font-family:'Share Tech Mono',monospace;font-size:.73rem;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rule-item .rule-del{background:none;border:none;color:var(--muted2);cursor:pointer;font-size:1rem;padding:2px 4px;flex-shrink:0}
+.rule-item .rule-del:active{color:var(--accent2)}
+.rule-add-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.rule-type-sel{
+  background:var(--bg);border:1.5px solid var(--border2);border-radius:8px;
+  color:var(--text);font-size:.8rem;padding:8px 10px;outline:none;flex-shrink:0;
+}
+
+/* SKU DB */
+.sku-db-wrap{margin-top:8px}
+.sku-count-badge{
+  display:inline-block;background:#e6f0ff;color:var(--accent);
+  font-size:.65rem;font-weight:700;padding:2px 10px;border-radius:10px;
+  margin-left:8px;border:1px solid #b3cfff;vertical-align:middle;
+}
+
+/* modal */
 .modal-overlay{
-  display:none;position:fixed;inset:0;z-index:300;
+  display:none;position:fixed;inset:0;z-index:400;
   background:rgba(0,0,0,.45);align-items:flex-end;justify-content:center;
 }
 .modal-overlay.open{display:flex;animation:mfade .15s}
@@ -222,147 +294,361 @@ header{
   box-shadow:0 -4px 24px rgba(0,0,0,.12);
 }
 @keyframes mup{from{transform:translateY(60px)}to{transform:translateY(0)}}
-.modal h3{font-size:1rem;margin-bottom:16px;color:var(--text)}
+.modal h3{font-size:1rem;margin-bottom:14px}
 .modal-input{
   width:100%;background:var(--bg);border:1.5px solid var(--border2);
   border-radius:10px;color:var(--text);font-family:'Share Tech Mono',monospace;
-  font-size:.82rem;padding:13px 14px;margin-bottom:10px;outline:none;min-height:48px;
+  font-size:.82rem;padding:12px 14px;margin-bottom:10px;outline:none;min-height:48px;
 }
 .modal-input:focus{border-color:var(--accent);background:#fff}
-.modal-input::placeholder{color:var(--muted2)}
-.modal-note{font-size:.7rem;color:var(--muted);margin-bottom:18px;line-height:1.7}
+.modal-input::placeholder{color:var(--muted2);font-family:'Noto Sans SC',sans-serif;font-size:.8rem}
+.modal-note{font-size:.7rem;color:var(--muted);margin-bottom:16px;line-height:1.7}
 .modal-note code{color:var(--accent);background:rgba(26,86,219,.08);padding:1px 5px;border-radius:4px}
 .modal-actions{display:flex;gap:10px}
-.modal-actions .btn{flex:1;min-height:48px;font-size:.88rem}
+.modal-actions .btn{flex:1;min-height:48px}
 
 .empty{color:var(--muted2);font-size:.82rem;padding:10px 0}
-
 @keyframes shake{
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-8px)}40%{transform:translateX(8px)}
-  60%{transform:translateX(-5px)}80%{transform:translateX(5px)}
+  0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}
+  40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}
 }
 </style>
 </head>
 <body>
-<div class="app">
 
-  <!-- Header -->
-  <header>
-    <div class="logo">SORT<span>·</span>SYS &nbsp;分拣</div>
-    <div class="stats">
-      篮:<b id="sB">0</b> &nbsp;扫:<b id="sS">0</b> &nbsp;SKU:<b id="sK">0</b>
-    </div>
-  </header>
+<!-- ══ PAGE 1: SCAN ══════════════════════════════════════════════════════ -->
+<div id="page-scan" class="page active">
 
-  <!-- Settings bar -->
-  <div class="settings-bar">
-    <span class="set-label">🔊 语音</span>
+  <div class="top-bar">
+    <div class="logo">SORT<span>·</span>SYS</div>
+    <div class="stats">篮:<b id="sB">0</b> &nbsp;扫:<b id="sS">0</b> &nbsp;SKU:<b id="sK">0</b></div>
+  </div>
+
+  <!-- Quick bar: voice + scan mode -->
+  <div class="qbar">
+    <span class="qlabel">🔊</span>
     <div class="seg">
       <button id="voiceOff" onclick="setVoice('off')">关</button>
       <button id="voiceZh"  onclick="setVoice('zh')">中文</button>
       <button id="voiceEs"  onclick="setVoice('es')">西语</button>
     </div>
+    <span class="qlabel" style="margin-left:6px">模式</span>
+    <div class="seg">
+      <button id="modeStrict" onclick="setScanMode('strict')">严格</button>
+      <button id="modeFree"   onclick="setScanMode('free')">自由</button>
+    </div>
     <span class="spacer"></span>
-    <button class="btn-gh" onclick="openGhModal()">💾 存 GitHub</button>
+    <button class="btn btn-gray btn-sm" onclick="openGhModal()">💾 备份</button>
   </div>
 
-  <!-- Scan card -->
-  <div class="scan-card">
-    <div class="scan-label">▸ 扫描 / 输入 SKU 条码</div>
+  <!-- Scan input -->
+  <div class="card scan-card">
+    <div class="scan-label">
+      ▸ 扫描 / 输入条码
+      <span id="scanModeBadge" class="scan-mode-badge">严格模式</span>
+    </div>
     <div class="scan-row">
       <input id="skuInput" type="text" inputmode="text"
         placeholder="扫描枪 或 手动输入后按回车…"
         autocomplete="off" spellcheck="false" autofocus>
       <button class="btn-scan" onclick="handleScan()">▶</button>
     </div>
-
-    <!-- Result banner -->
+    <div class="parsed-preview" id="parsedPreview"></div>
     <div id="resultBanner">
       <div class="basket-big" id="bannerNum">—</div>
       <div class="result-info">
+        <div class="result-raw" id="bannerRaw"></div>
         <div class="result-sku" id="bannerSku"></div>
         <div class="result-msg" id="bannerMsg"></div>
-        <div class="result-new" id="bannerNew"></div>
+        <div class="result-sub" id="bannerSub"></div>
       </div>
     </div>
   </div>
 
   <!-- Baskets -->
-  <div class="section-title">分拣篮子</div>
+  <div class="sec-title">分拣篮子</div>
   <div class="toolbar">
-    <button class="btn" style="font-size:.78rem;padding:10px 14px" onclick="manualAddBasket()">＋ 新增篮子</button>
-    <button class="btn btn-outline" onclick="confirmReset()">↺ 重置全部</button>
+    <button class="btn btn-sm" onclick="manualAddBasket()">＋ 新增篮子</button>
+    <button class="btn btn-red btn-sm" onclick="confirmReset()">↺ 重置</button>
   </div>
   <div id="basketGrid"></div>
 
   <!-- History -->
-  <div class="section-title">扫描记录</div>
-  <div id="historyList"><div class="empty">暂无记录，扫描第一个 SKU 开始</div></div>
-
+  <div class="sec-title">扫描记录</div>
+  <div id="historyList"><div class="empty">暂无记录</div></div>
 </div>
 
-<div id="toast"></div>
+<!-- ══ PAGE 2: SETTINGS ══════════════════════════════════════════════════ -->
+<div id="page-settings" class="page">
+  <div class="top-bar" style="margin-bottom:16px">
+    <div class="logo" style="font-size:.9rem">⚙ 扫描设置</div>
+  </div>
 
-<!-- GitHub Modal -->
+  <!-- ① 扫描模式 -->
+  <div class="card set-section">
+    <div class="set-section-title">扫描模式</div>
+
+    <div class="set-row">
+      <div class="set-row-info">
+        <div class="set-row-title">🔒 严格模式（默认）</div>
+        <div class="set-row-desc">只有 SKU 数据库中存在前缀的条码才能通过扫描。前缀匹配后，允许条码后面有额外字符（如流水号）。</div>
+      </div>
+    </div>
+    <div class="set-row">
+      <div class="set-row-info">
+        <div class="set-row-title">🔓 自由模式</div>
+        <div class="set-row-desc">任何条码都能扫描成功，忽略 SKU 数据库。适合临时任务或测试。</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="toggleFreeMode" onchange="onFreeModeToggle()">
+        <div class="toggle-track"></div>
+      </label>
+    </div>
+  </div>
+
+  <!-- ② SKU 数据库 -->
+  <div class="card set-section">
+    <div class="set-section-title">
+      SKU 数据库
+      <span class="sku-count-badge" id="skuDbCount">0 条</span>
+    </div>
+    <div class="set-row-desc" style="margin-bottom:10px;font-size:.75rem;color:var(--muted)">
+      每行一个 SKU 前缀。严格模式下，扫描条码必须以其中一个前缀开头才能通过。
+    </div>
+    <textarea class="set-input set-textarea" id="skuDbInput"
+      placeholder="每行输入一个 SKU 前缀，例如：&#10;53618319&#10;MXRC&#10;ABC-001"></textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-sm" onclick="saveSkuDb()">保存数据库</button>
+      <button class="btn btn-gray btn-sm" onclick="clearSkuDb()">清空</button>
+    </div>
+  </div>
+
+  <!-- ③ 扫描解析规则 -->
+  <div class="card set-section">
+    <div class="set-section-title">扫描解析规则</div>
+    <div class="set-row-desc" style="margin-bottom:12px;font-size:.75rem;color:var(--muted)">
+      规则按顺序执行，第一条匹配成功后停止。用于从复杂条码（如 JSON、带前缀字符串）中提取有效 SKU。
+    </div>
+
+    <div class="rules-list" id="rulesList"></div>
+
+    <!-- Add rule form -->
+    <div class="rule-add-row" style="margin-top:12px">
+      <select class="rule-type-sel" id="newRuleType">
+        <option value="json_field">JSON 字段</option>
+        <option value="regex">正则提取</option>
+        <option value="remove_prefix">去除前缀</option>
+        <option value="remove_suffix">去除后缀</option>
+        <option value="trim_chars">截取字符</option>
+        <option value="passthrough">直接使用</option>
+      </select>
+      <input class="set-input" id="newRuleVal" placeholder="参数（如字段名 id，或正则 (\d+\/\d+)）" style="margin-top:0;flex:1;min-width:120px">
+    </div>
+    <div style="margin-top:6px">
+      <input class="set-input" id="newRuleDesc" placeholder="备注说明（可选）" style="margin-top:0">
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-purple btn-sm" onclick="addRule()">＋ 添加规则</button>
+      <button class="btn btn-gray btn-sm" onclick="loadDefaultRules()">恢复默认</button>
+    </div>
+
+    <!-- Rule test -->
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
+      <div class="set-row-title" style="margin-bottom:6px;font-size:.8rem">🧪 规则测试</div>
+      <input class="set-input" id="testInput"
+        placeholder='粘贴原始扫描内容，例如 {"id":"53618319/4",...}'
+        style="margin-top:0">
+      <button class="btn btn-sm" style="margin-top:8px" onclick="testRules()">测试解析</button>
+      <div id="testResult" style="margin-top:8px;font-family:'Share Tech Mono',monospace;font-size:.78rem;display:none;padding:8px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border)"></div>
+    </div>
+  </div>
+
+  <!-- ④ GitHub 备份设置 -->
+  <div class="card set-section">
+    <div class="set-section-title">GitHub 备份</div>
+    <div class="set-row-desc" style="margin-bottom:8px;font-size:.75rem;color:var(--muted)">Token 仅存本机，不上传第三方服务器。</div>
+    <input class="set-input" id="cfgToken" type="password" placeholder="Personal Access Token  (ghp_...)">
+    <input class="set-input" id="cfgRepo"  type="text"     placeholder="用户名/仓库名  例: alice/warehouse">
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-sm" onclick="saveGhConfig()">保存配置</button>
+      <button class="btn btn-sm" onclick="doGithubSave()">立即备份</button>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom nav -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" id="nav-scan" onclick="goPage('scan')">
+    <span class="nav-icon">📦</span>扫描
+  </button>
+  <button class="nav-btn" id="nav-settings" onclick="goPage('settings')">
+    <span class="nav-icon">⚙️</span>设置
+  </button>
+</nav>
+
+<!-- GitHub Modal (quick backup from scan page) -->
 <div class="modal-overlay" id="ghModal" onclick="bgClose(event)">
   <div class="modal">
-    <h3>💾 备份数据到 GitHub</h3>
-    <input class="modal-input" id="ghToken" type="password"
-      placeholder="GitHub Personal Access Token  (ghp_...)" autocomplete="off">
-    <input class="modal-input" id="ghRepo" type="text"
-      placeholder="用户名/仓库名  例: alice/warehouse-sort" autocomplete="off">
-    <div class="modal-note">
-      Token 需要 <code>repo</code> 权限（Settings → Developer settings → Tokens）。<br>
-      备份存入 <code>backup/</code> 文件夹，文件名含日期时间。<br>
-      Token 仅保存在本机浏览器，不会上传到任何第三方服务器。
-    </div>
+    <h3>💾 备份到 GitHub</h3>
+    <input class="modal-input" id="ghToken" type="password" placeholder="Personal Access Token (ghp_...)" autocomplete="off">
+    <input class="modal-input" id="ghRepo"  type="text"     placeholder="用户名/仓库名  例: alice/warehouse" autocomplete="off">
+    <div class="modal-note">Token 需要 <code>repo</code> 权限。备份存入 <code>backup/</code> 文件夹。</div>
     <div class="modal-actions">
-      <button class="btn btn-outline" onclick="closeGhModal()">取消</button>
+      <button class="btn btn-gray" onclick="closeGhModal()">取消</button>
       <button class="btn" id="ghSaveBtn" onclick="doGithubSave()">确认上传</button>
     </div>
   </div>
 </div>
 
+<div id="toast"></div>
+
 <script>
 // ═══════════════════════════════════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════════════════════════════════
-const SK = 'sortsys_v4';
+const SK = 'sortsys_v5';
+
+function defaultState() {
+  return {
+    baskets:[], skuMap:{}, history:[], totalScans:0,
+    voice:'off',
+    scanMode:'strict',       // 'strict' | 'free'
+    skuDb:[],                // array of SKU prefix strings
+    rules: defaultRules(),   // parse rules
+    ghToken:'', ghRepo:''
+  };
+}
+
+function defaultRules() {
+  return [
+    { id:uid(), type:'json_field',    val:'id',           desc:'Mercado Libre QR: 提取 id 字段' },
+    { id:uid(), type:'regex',         val:'\"id\":\"([^\"]+)\"', desc:'JSON id 备用正则' },
+    { id:uid(), type:'passthrough',   val:'',             desc:'普通条码直接使用' }
+  ];
+}
+
+function uid(){ return Math.random().toString(36).slice(2,8); }
 
 function loadState() {
   try {
     const r = localStorage.getItem(SK);
-    if (r) return JSON.parse(r);
-  } catch(e) {}
-  return { baskets:[], skuMap:{}, history:[], totalScans:0, voice:'off', ghToken:'', ghRepo:'' };
+    if (r) {
+      const s = JSON.parse(r);
+      // merge to ensure new fields exist
+      return Object.assign(defaultState(), s);
+    }
+  } catch(e){}
+  return defaultState();
 }
-function saveState() { localStorage.setItem(SK, JSON.stringify(state)); }
+function saveState(){ localStorage.setItem(SK, JSON.stringify(state)); }
 
 let state = loadState();
 
+// ═══════════════════════════════════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════════════════════════════════
+function goPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('nav-' + name).classList.add('active');
+  if (name === 'settings') renderSettingsPage();
+  if (name === 'scan') setTimeout(() => document.getElementById('skuInput').focus(), 100);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  SCAN PARSER ENGINE
+// ═══════════════════════════════════════════════════════════════════════
 /*
-  DATA STRUCTURE
-  ==============
-  state.baskets  = [ { id, num, sku, count } ]
-    - num  : basket number (1, 2, 3…)
-    - sku  : the FIRST SKU assigned to this basket (display label only)
-    - count: total items scanned into this basket
-
-  state.skuMap   = { "SKU-A": 1, "SKU-B": 2, … }
-    - Maps every SKU string → its assigned basket number
-    - This is the single source of truth for routing
-
-  SORTING LOGIC
-  =============
-  On every scan:
-    1. Normalise input to UPPERCASE
-    2. Look up skuMap[sku]
-       - FOUND  → return existing basket number  (same SKU → same basket)
-       - NOT FOUND → create next basket, store skuMap[sku] = newNum
-    Each distinct SKU always maps to exactly ONE basket.
-    Different SKUs always map to DIFFERENT baskets.
+  parseRaw(raw) → { sku: string|null, rawUsed: string }
+  Applies rules in order until one succeeds.
+  Returns { sku } where sku is the extracted/cleaned value, or null if nothing matched.
 */
+function parseRaw(raw) {
+  const input = raw.trim();
+  for (const rule of state.rules) {
+    const result = applyRule(rule, input);
+    if (result !== null && result.trim() !== '') {
+      return { sku: result.trim().toUpperCase(), ruleUsed: rule };
+    }
+  }
+  return { sku: null, ruleUsed: null };
+}
+
+function applyRule(rule, input) {
+  try {
+    switch(rule.type) {
+
+      case 'json_field': {
+        // Try to parse as JSON, extract named field
+        let obj;
+        try { obj = JSON.parse(input); } catch(e) { return null; }
+        const val = obj[rule.val];
+        return (val !== undefined && val !== null) ? String(val) : null;
+      }
+
+      case 'regex': {
+        // Extract first capture group, or full match if no group
+        const rx = new RegExp(rule.val);
+        const m = input.match(rx);
+        if (!m) return null;
+        return m[1] !== undefined ? m[1] : m[0];
+      }
+
+      case 'remove_prefix': {
+        // Strip a fixed prefix string
+        if (rule.val && input.startsWith(rule.val)) return input.slice(rule.val.length);
+        if (!rule.val) return input; // empty prefix = noop
+        return null;
+      }
+
+      case 'remove_suffix': {
+        if (rule.val && input.endsWith(rule.val)) return input.slice(0, -rule.val.length);
+        if (!rule.val) return input;
+        return null;
+      }
+
+      case 'trim_chars': {
+        // val = "N" or "N,M" → keep chars [N..M]  (1-based)
+        const parts = rule.val.split(',').map(x => parseInt(x.trim()));
+        const start = (parts[0] || 1) - 1;
+        const end   = parts[1] ? parts[1] : undefined;
+        const sliced = end !== undefined ? input.slice(start, end) : input.slice(start);
+        return sliced || null;
+      }
+
+      case 'passthrough':
+        // Always succeeds — returns input as-is
+        return input;
+
+      default:
+        return null;
+    }
+  } catch(e) {
+    return null;
+  }
+}
+
+// ── SKU prefix match ────────────────────────────────────────────────────
+/*
+  matchesSku(sku) → { matched:bool, prefix:string|null }
+  In strict mode: sku must START WITH one of the db entries (prefix match).
+  This allows "53618319/4" to match db entry "53618319".
+  In free mode: always passes.
+*/
+function matchesSku(sku) {
+  if (state.scanMode === 'free') return { matched: true, prefix: null };
+  if (!state.skuDb || state.skuDb.length === 0) {
+    // No DB configured → allow all in strict mode too (warn user in settings)
+    return { matched: true, prefix: null };
+  }
+  for (const prefix of state.skuDb) {
+    if (prefix && sku.startsWith(prefix.toUpperCase())) {
+      return { matched: true, prefix };
+    }
+  }
+  return { matched: false, prefix: null };
+}
 
 // ═══════════════════════════════════════════════════════════════════════
 //  VOICE
@@ -373,302 +659,370 @@ function speakNumber(num) {
   const isZh = state.voice === 'zh';
   const u = new SpeechSynthesisUtterance(isZh ? numToZh(num) : numToEs(num));
   u.lang  = isZh ? 'zh-CN' : 'es-ES';
-  u.rate  = 0.88;
-  u.pitch = 1;
+  u.rate  = 0.88; u.pitch = 1;
   const vs = window.speechSynthesis.getVoices();
   const pref = vs.find(v => v.lang.startsWith(isZh ? 'zh' : 'es'));
   if (pref) u.voice = pref;
   window.speechSynthesis.speak(u);
 }
-
-// Chinese: digit-by-digit for warehouse clarity  12 → "一 二"
-function numToZh(n) {
-  return String(n).split('').join(' ');
+function numToZh(n){ return String(n).split('').join(' '); }
+function numToEs(n){
+  const ones=['cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve',
+               'diez','once','doce','trece','catorce','quince','dieciséis','diecisiete','dieciocho','diecinueve'];
+  const tens=['','','veinte','treinta','cuarenta','cincuenta','sesenta','setenta','ochenta','noventa'];
+  if(n<20) return ones[n];
+  if(n<100){ const t=Math.floor(n/10),o=n%10; return o===0?tens[t]:tens[t]+' y '+ones[o]; }
+  return String(n).split('').map(d=>ones[parseInt(d)]).join(' ');
 }
-
-// Spanish: natural word form  12 → "doce"  25 → "veinticinco"
-function numToEs(n) {
-  const ones = ['cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve',
-                'diez','once','doce','trece','catorce','quince',
-                'dieciséis','diecisiete','dieciocho','diecinueve'];
-  const tens = ['','','veinte','treinta','cuarenta','cincuenta',
-                'sesenta','setenta','ochenta','noventa'];
-  if (n < 20) return ones[n];
-  if (n < 100) {
-    const t = Math.floor(n/10), o = n%10;
-    return o === 0 ? tens[t] : tens[t] + ' y ' + ones[o];
-  }
-  // 100+: digit by digit
-  return String(n).split('').map(d => ones[parseInt(d)]).join(' ');
-}
-
-function setVoice(v) {
-  state.voice = v; saveState();
-  document.querySelectorAll('.seg button').forEach(b => b.classList.remove('on'));
-  const map = { off:'voiceOff', zh:'voiceZh', es:'voiceEs' };
+function setVoice(v){
+  state.voice=v; saveState();
+  document.querySelectorAll('#page-scan .seg button').forEach(b=>b.classList.remove('on'));
+  const map={off:'voiceOff',zh:'voiceZh',es:'voiceEs'};
   document.getElementById(map[v]).classList.add('on');
-  if (v !== 'off') setTimeout(() => speakNumber(1), 120);
+  if(v!=='off') setTimeout(()=>speakNumber(1),120);
 }
+if(window.speechSynthesis){ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices(); }
 
-if (window.speechSynthesis) {
-  speechSynthesis.getVoices();
-  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+// ═══════════════════════════════════════════════════════════════════════
+//  SCAN MODE
+// ═══════════════════════════════════════════════════════════════════════
+function setScanMode(mode){
+  state.scanMode = mode; saveState();
+  document.getElementById('modeStrict').classList.toggle('on',       mode==='strict');
+  document.getElementById('modeFree').classList.toggle('on-orange',  mode==='free');
+  document.getElementById('modeFree').classList.toggle('on',         false);
+  const badge = document.getElementById('scanModeBadge');
+  badge.textContent = mode==='strict' ? '严格模式' : '自由模式';
+  badge.className   = 'scan-mode-badge' + (mode==='free' ? ' free' : '');
+  // sync settings toggle
+  const tog = document.getElementById('toggleFreeMode');
+  if(tog) tog.checked = mode==='free';
+}
+function onFreeModeToggle(){
+  const on = document.getElementById('toggleFreeMode').checked;
+  setScanMode(on ? 'free' : 'strict');
 }
 
 // ═══════════════════════════════════════════════════════════════════════
 //  BASKET HELPERS
 // ═══════════════════════════════════════════════════════════════════════
-function nextNum() {
-  return state.baskets.length === 0 ? 1 : Math.max(...state.baskets.map(b => b.num)) + 1;
+function nextNum(){ return state.baskets.length===0?1:Math.max(...state.baskets.map(b=>b.num))+1; }
+function createBasket(sku=null){
+  const b={id:Date.now(),num:nextNum(),sku:sku||null,count:0};
+  state.baskets.push(b); return b;
 }
-
-// Internal: create basket, optionally pre-assign a SKU label
-function createBasket(sku = null) {
-  const num = nextNum();
-  const b = { id: Date.now(), num, sku: sku || null, count: 0 };
-  state.baskets.push(b);
-  return b;
-}
-
-// Button: manually add an empty basket
-function manualAddBasket() {
-  const b = createBasket(null);
-  saveState(); renderBaskets();
-  toast('已新增篮子 #' + b.num);
+function manualAddBasket(){
+  const b=createBasket(null); saveState(); renderBaskets();
+  toast('已新增篮子 #'+b.num);
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-//  SCAN — CORE LOGIC
+//  MAIN SCAN HANDLER
 // ═══════════════════════════════════════════════════════════════════════
-function handleScan() {
+function handleScan(){
   const raw = document.getElementById('skuInput').value.trim();
-  if (!raw) { shakeInput(); return; }
-
-  // Always uppercase for consistent matching
-  const sku = raw.toUpperCase();
+  if(!raw){ shakeInput(); return; }
   document.getElementById('skuInput').value = '';
   document.getElementById('skuInput').focus();
 
+  // Step 1: parse raw input through rules
+  const { sku, ruleUsed } = parseRaw(raw);
+
+  // Show parsed preview
+  showParsedPreview(raw, sku, ruleUsed);
+
+  if(!sku){
+    showError(raw, '⚠ 无法解析条码', '没有规则能提取有效内容，请检查设置 → 解析规则');
+    return;
+  }
+
+  // Step 2: check against SKU DB (prefix match)
+  const { matched, prefix } = matchesSku(sku);
+  if(!matched){
+    showError(raw, '⛔ SKU 不在数据库', `"${sku}" 不匹配任何已知前缀，请切换自由模式或添加该 SKU 到数据库`);
+    state.history.unshift({ time:new Date().toTimeString().slice(0,8), sku, basket:null, isNew:false, blocked:true, raw });
+    if(state.history.length>300) state.history.pop();
+    saveState(); renderHistory(); renderStats();
+    return;
+  }
+
+  // Step 3: assign basket
   state.totalScans++;
+  let isNew=false, basketNum;
 
-  let isNew = false;
-  let basketNum;
-
-  if (state.skuMap[sku] !== undefined) {
-    // ── KNOWN SKU: return its basket ──────────────────────────────────
+  if(state.skuMap[sku]!==undefined){
     basketNum = state.skuMap[sku];
-    const basket = state.baskets.find(b => b.num === basketNum);
-    if (basket) basket.count++;
-
+    const basket = state.baskets.find(b=>b.num===basketNum);
+    if(basket) basket.count++;
   } else {
-    // ── NEW SKU: allocate the NEXT available basket ───────────────────
     const basket = createBasket(sku);
     state.skuMap[sku] = basket.num;
     basket.count = 1;
     basketNum = basket.num;
     isNew = true;
-
-    // Animate only the newly created cell after render
-    saveState();
-    renderBaskets();
-    requestAnimationFrame(() => {
-      const cell = document.querySelector(`.basket-cell[data-num="${basketNum}"]`);
-      if (cell) { cell.classList.add('new-anim'); cell.addEventListener('animationend', () => cell.classList.remove('new-anim'), {once:true}); }
+    saveState(); renderBaskets();
+    requestAnimationFrame(()=>{
+      const cell=document.querySelector(`.basket-cell[data-num="${basketNum}"]`);
+      if(cell){ cell.classList.add('new-anim'); cell.addEventListener('animationend',()=>cell.classList.remove('new-anim'),{once:true}); }
     });
   }
 
-  // Record history
-  const ts = new Date().toTimeString().slice(0, 8);
-  state.history.unshift({ time: ts, sku, basket: basketNum, isNew });
-  if (state.history.length > 300) state.history.pop();
+  const isFreeMode = state.scanMode==='free';
+  state.history.unshift({ time:new Date().toTimeString().slice(0,8), sku, basket:basketNum, isNew, blocked:false, free:isFreeMode, raw });
+  if(state.history.length>300) state.history.pop();
   saveState();
 
-  showResult(sku, basketNum, isNew);
+  showResult(raw, sku, basketNum, isNew, isFreeMode);
   highlightBasket(basketNum);
-  renderHistory();
-  renderStats();
+  renderHistory(); renderStats();
   speakNumber(basketNum);
 }
 
-// ── Show result banner ────────────────────────────────────────────────
-function showResult(sku, num, isNew) {
-  const banner = document.getElementById('resultBanner');
-  // Remove anim class, force reflow, re-add to replay animation
-  banner.classList.remove('anim');
-  banner.style.display = 'flex';
-  void banner.offsetWidth;
-  banner.className = (isNew ? 'warn' : '') + ' anim';
-
-  document.getElementById('bannerNum').textContent = '#' + num;
-  document.getElementById('bannerSku').textContent = sku;
-  document.getElementById('bannerMsg').textContent = isNew
-    ? '新 SKU — 已分配到篮子 #' + num
-    : '请放入篮子 #' + num;
-  document.getElementById('bannerNew').textContent = isNew ? '★ 已创建新篮子' : '';
+// ── Parsed preview ──────────────────────────────────────────────────────
+function showParsedPreview(raw, sku, rule){
+  const el = document.getElementById('parsedPreview');
+  if(!raw || raw.length < 20){ el.style.display='none'; return; } // skip for short plain barcodes
+  el.style.display = 'block';
+  if(sku){
+    el.innerHTML = `原始: <b>${escHtml(raw.slice(0,60))}${raw.length>60?'…':''}</b>  →  提取: <b style="color:var(--success)">${escHtml(sku)}</b>${rule?' <span style="color:var(--muted2)">['+escHtml(rule.desc||rule.type)+']</span>':''}`;
+  } else {
+    el.innerHTML = `原始: <b>${escHtml(raw.slice(0,60))}${raw.length>60?'…':''}</b>  →  <span style="color:var(--error)">解析失败</span>`;
+  }
 }
 
-// ── Highlight basket cell ─────────────────────────────────────────────
-function highlightBasket(num) {
-  document.querySelectorAll('.basket-cell').forEach(el => {
+// ── Show result banner ──────────────────────────────────────────────────
+function showResult(raw, sku, num, isNew, isFreeMode){
+  const b=document.getElementById('resultBanner');
+  b.classList.remove('anim','warn','err');
+  b.style.display='flex';
+  void b.offsetWidth;
+  b.className=(isNew?'warn':'') + ' anim';
+  document.getElementById('bannerNum').textContent='#'+num;
+  document.getElementById('bannerRaw').textContent=raw.length>40 ? raw.slice(0,40)+'…' : raw;
+  document.getElementById('bannerSku').textContent=sku;
+  document.getElementById('bannerMsg').textContent=isNew?'新 SKU — 已分配篮子 #'+num:'请放入篮子 #'+num;
+  document.getElementById('bannerSub').textContent=(isNew?'★ 已创建新篮子  ':'')+(isFreeMode?'🔓 自由模式':'');
+}
+function showError(raw, title, msg){
+  const b=document.getElementById('resultBanner');
+  b.classList.remove('anim','warn');
+  b.style.display='flex';
+  void b.offsetWidth;
+  b.className='err anim';
+  document.getElementById('bannerNum').textContent='✕';
+  document.getElementById('bannerRaw').textContent=raw.length>40?raw.slice(0,40)+'…':raw;
+  document.getElementById('bannerSku').textContent='';
+  document.getElementById('bannerMsg').textContent=title;
+  document.getElementById('bannerSub').textContent=msg;
+}
+
+function highlightBasket(num){
+  document.querySelectorAll('.basket-cell').forEach(el=>{
     el.classList.remove('active');
-    if (parseInt(el.dataset.num) === num) {
-      el.classList.add('active');
-      el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-    }
+    if(parseInt(el.dataset.num)===num){ el.classList.add('active'); el.scrollIntoView({block:'nearest',behavior:'smooth'}); }
   });
-  setTimeout(() => {
-    document.querySelectorAll('.basket-cell').forEach(el => el.classList.remove('active'));
-  }, 3500);
+  setTimeout(()=>document.querySelectorAll('.basket-cell').forEach(el=>el.classList.remove('active')),3500);
 }
 
 // ═══════════════════════════════════════════════════════════════════════
 //  RENDER
 // ═══════════════════════════════════════════════════════════════════════
-function renderBaskets() {
-  const g = document.getElementById('basketGrid');
-  g.innerHTML = '';
-  if (!state.baskets.length) {
-    g.innerHTML = '<div class="empty">暂无篮子，扫描第一个 SKU 自动创建</div>';
-    return;
-  }
-  state.baskets.forEach(b => {
-    const el = document.createElement('div');
-    el.className = 'basket-cell';
-    el.dataset.num = b.num;
-    el.innerHTML = `
-      <div class="basket-count">${b.count || 0}</div>
+function renderBaskets(){
+  const g=document.getElementById('basketGrid'); g.innerHTML='';
+  if(!state.baskets.length){ g.innerHTML='<div class="empty">暂无篮子，扫描第一个条码自动创建</div>'; return; }
+  state.baskets.forEach(b=>{
+    const el=document.createElement('div');
+    el.className='basket-cell'; el.dataset.num=b.num;
+    el.innerHTML=`<div class="basket-count">${b.count||0}</div>
       <div class="basket-num">#${b.num}</div>
-      <div class="basket-sku-label">${b.sku || '—'}</div>`;
+      <div class="basket-sku-label">${b.sku||'—'}</div>`;
     g.appendChild(el);
   });
 }
 
-function renderHistory() {
-  const l = document.getElementById('historyList');
-  l.innerHTML = '';
-  if (!state.history.length) {
-    l.innerHTML = '<div class="empty">暂无记录，扫描第一个 SKU 开始</div>';
-    return;
-  }
-  state.history.slice(0, 60).forEach((h, i) => {
-    const el = document.createElement('div');
-    el.className = 'history-row';
-    el.style.animationDelay = i === 0 ? '0ms' : (i * 6) + 'ms';
-    el.innerHTML = `
-      <span class="h-time">${h.time}</span>
-      <span class="h-sku">${h.sku}</span>
-      <span class="h-basket">#${h.basket}</span>
-      ${h.isNew ? '<span class="h-new">NEW</span>' : ''}`;
+function renderHistory(){
+  const l=document.getElementById('historyList'); l.innerHTML='';
+  if(!state.history.length){ l.innerHTML='<div class="empty">暂无记录</div>'; return; }
+  state.history.slice(0,60).forEach((h,i)=>{
+    const el=document.createElement('div');
+    el.className='h-row'; el.style.animationDelay=i===0?'0ms':(i*6)+'ms';
+    let tag='';
+    if(h.blocked) tag='<span class="h-tag blocked">拒绝</span>';
+    else if(h.isNew) tag='<span class="h-tag new">NEW</span>';
+    else if(h.free)  tag='<span class="h-tag free">自由</span>';
+    el.innerHTML=`<span class="h-time">${h.time}</span>
+      <span class="h-sku">${h.sku||'—'}</span>
+      <span class="h-basket">${h.basket?'#'+h.basket:'—'}</span>
+      ${tag}`;
     l.appendChild(el);
   });
 }
 
-function renderStats() {
-  document.getElementById('sB').textContent = state.baskets.length;
-  document.getElementById('sS').textContent = state.totalScans;
-  document.getElementById('sK').textContent = Object.keys(state.skuMap).length;
+function renderStats(){
+  document.getElementById('sB').textContent=state.baskets.length;
+  document.getElementById('sS').textContent=state.totalScans;
+  document.getElementById('sK').textContent=Object.keys(state.skuMap).length;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  SETTINGS PAGE RENDER
+// ═══════════════════════════════════════════════════════════════════════
+function renderSettingsPage(){
+  // sync free mode toggle
+  document.getElementById('toggleFreeMode').checked = state.scanMode==='free';
+  // SKU DB
+  document.getElementById('skuDbInput').value = (state.skuDb||[]).join('\n');
+  document.getElementById('skuDbCount').textContent = (state.skuDb||[]).filter(s=>s.trim()).length + ' 条';
+  // GitHub config
+  document.getElementById('cfgToken').value = state.ghToken||'';
+  document.getElementById('cfgRepo').value  = state.ghRepo||'';
+  // Rules
+  renderRules();
+}
+
+function renderRules(){
+  const container=document.getElementById('rulesList');
+  container.innerHTML='';
+  if(!state.rules||!state.rules.length){
+    container.innerHTML='<div class="empty">暂无规则</div>'; return;
+  }
+  state.rules.forEach((rule,idx)=>{
+    const el=document.createElement('div');
+    el.className='rule-item';
+    const typeLabels={json_field:'JSON字段',regex:'正则',remove_prefix:'去前缀',remove_suffix:'去后缀',trim_chars:'截取',passthrough:'直通'};
+    const typeColors={json_field:'json',regex:'regex',remove_prefix:'prefix',remove_suffix:'prefix',trim_chars:'trim',passthrough:'trim'};
+    el.innerHTML=`
+      <span class="rule-type ${typeColors[rule.type]||'json'}">${typeLabels[rule.type]||rule.type}</span>
+      <span class="rule-val" title="${escHtml(rule.val)}">${escHtml(rule.val||'(无参数)')} ${rule.desc?'<span style="color:var(--muted2)">— '+escHtml(rule.desc)+'</span>':''}</span>
+      <button class="rule-del" onclick="deleteRule(${idx})" title="删除">✕</button>`;
+    container.appendChild(el);
+  });
+}
+
+function addRule(){
+  const type=document.getElementById('newRuleType').value;
+  const val =document.getElementById('newRuleVal').value.trim();
+  const desc=document.getElementById('newRuleDesc').value.trim();
+  if(type!=='passthrough' && !val){ toast('请填写规则参数'); return; }
+  state.rules.push({ id:uid(), type, val, desc });
+  saveState(); renderRules();
+  document.getElementById('newRuleVal').value='';
+  document.getElementById('newRuleDesc').value='';
+  toast('规则已添加');
+}
+function deleteRule(idx){
+  state.rules.splice(idx,1); saveState(); renderRules();
+}
+function loadDefaultRules(){
+  if(confirm('恢复默认规则？当前规则将被替换。')){
+    state.rules=defaultRules(); saveState(); renderRules(); toast('已恢复默认规则');
+  }
+}
+function saveSkuDb(){
+  const raw=document.getElementById('skuDbInput').value;
+  state.skuDb=raw.split('\n').map(s=>s.trim()).filter(Boolean);
+  saveState();
+  document.getElementById('skuDbCount').textContent=state.skuDb.length+' 条';
+  toast('SKU 数据库已保存，共 '+state.skuDb.length+' 条');
+}
+function clearSkuDb(){
+  if(confirm('确定清空 SKU 数据库？')){ state.skuDb=[]; saveState(); document.getElementById('skuDbInput').value=''; document.getElementById('skuDbCount').textContent='0 条'; toast('已清空'); }
+}
+function saveGhConfig(){
+  state.ghToken=document.getElementById('cfgToken').value.trim();
+  state.ghRepo =document.getElementById('cfgRepo').value.trim();
+  saveState(); toast('GitHub 配置已保存');
+}
+function testRules(){
+  const raw=document.getElementById('testInput').value.trim();
+  if(!raw){ toast('请输入测试内容'); return; }
+  const {sku,ruleUsed}=parseRaw(raw);
+  const res=document.getElementById('testResult');
+  res.style.display='block';
+  if(sku){
+    const {matched,prefix}=matchesSku(sku);
+    res.innerHTML=`✅ 提取成功: <b style="color:var(--success)">${escHtml(sku)}</b><br>
+规则: ${escHtml(ruleUsed?ruleUsed.desc||ruleUsed.type:'—')}<br>
+SKU 匹配: ${matched ? '✅ 通过'+(prefix?' (前缀: '+escHtml(prefix)+')':' (无数据库/自由模式)'):'❌ 拒绝 — 不在数据库中'}`;
+  } else {
+    res.innerHTML=`❌ 解析失败: 没有规则能提取内容<br>原始: ${escHtml(raw.slice(0,80))}`;
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════════
 //  UTILS
 // ═══════════════════════════════════════════════════════════════════════
-function shakeInput() {
-  const i = document.getElementById('skuInput');
-  i.style.animation = 'none'; i.offsetHeight; i.style.animation = 'shake .3s';
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function shakeInput(){
+  const i=document.getElementById('skuInput');
+  i.style.animation='none'; i.offsetHeight; i.style.animation='shake .3s';
 }
-
-function confirmReset() {
-  if (confirm('确定要清除所有篮子和扫描记录吗？\n此操作不可撤销，建议先备份到 GitHub。')) {
-    state.baskets = []; state.skuMap = {}; state.history = []; state.totalScans = 0;
+function confirmReset(){
+  if(confirm('确定要清除所有篮子和扫描记录吗？\n此操作不可撤销，建议先备份。')){
+    state.baskets=[]; state.skuMap={}; state.history=[]; state.totalScans=0;
     saveState();
-    document.getElementById('resultBanner').style.display = 'none';
-    renderBaskets(); renderHistory(); renderStats();
-    toast('已重置所有数据');
+    document.getElementById('resultBanner').style.display='none';
+    document.getElementById('parsedPreview').style.display='none';
+    renderBaskets(); renderHistory(); renderStats(); toast('已重置所有数据');
   }
 }
-
 let _tt;
-function toast(msg, dur = 2600) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), dur);
+function toast(msg,dur=2600){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(_tt); _tt=setTimeout(()=>t.classList.remove('show'),dur);
 }
 
 // ═══════════════════════════════════════════════════════════════════════
 //  GITHUB BACKUP
 // ═══════════════════════════════════════════════════════════════════════
-function openGhModal() {
-  document.getElementById('ghToken').value = state.ghToken || '';
-  document.getElementById('ghRepo').value  = state.ghRepo  || '';
+function openGhModal(){
+  document.getElementById('ghToken').value=state.ghToken||'';
+  document.getElementById('ghRepo').value =state.ghRepo||'';
   document.getElementById('ghModal').classList.add('open');
 }
-function closeGhModal() { document.getElementById('ghModal').classList.remove('open'); }
-function bgClose(e) { if (e.target === document.getElementById('ghModal')) closeGhModal(); }
+function closeGhModal(){ document.getElementById('ghModal').classList.remove('open'); }
+function bgClose(e){ if(e.target===document.getElementById('ghModal')) closeGhModal(); }
 
-async function doGithubSave() {
-  const token = document.getElementById('ghToken').value.trim();
-  const repo  = document.getElementById('ghRepo').value.trim();
-  if (!token) { toast('请填写 GitHub Token'); return; }
-  if (!repo || !repo.includes('/')) { toast('仓库格式：用户名/仓库名'); return; }
-
-  state.ghToken = token; state.ghRepo = repo; saveState();
-
-  const now = new Date();
-  const p = n => String(n).padStart(2, '0');
-  const fname = `backup_${now.getFullYear()}-${p(now.getMonth()+1)}-${p(now.getDate())}_${p(now.getHours())}-${p(now.getMinutes())}.json`;
-  const filePath = `backup/${fname}`;
-
-  const payload = JSON.stringify({
-    exportedAt: now.toISOString(),
-    baskets:    state.baskets,
-    skuMap:     state.skuMap,
-    history:    state.history,
-    totalScans: state.totalScans
-  }, null, 2);
-
-  const encoded = btoa(unescape(encodeURIComponent(payload)));
-  const apiUrl  = `https://api.github.com/repos/${repo}/contents/${filePath}`;
-
-  const btn = document.getElementById('ghSaveBtn');
-  btn.textContent = '上传中…'; btn.disabled = true;
-  toast('正在上传到 GitHub…', 10000);
-
-  try {
-    const res  = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: {
-        'Authorization': 'token ' + token,
-        'Content-Type':  'application/json',
-        'Accept':        'application/vnd.github+json'
-      },
-      body: JSON.stringify({ message: `backup: ${fname}`, content: encoded })
-    });
-    const data = await res.json();
-    if (res.ok) {
-      closeGhModal();
-      toast(`✅ 备份成功！  backup/${fname}`);
-    } else {
-      toast(`❌ 失败: ${data.message || res.status}`, 5000);
-    }
-  } catch(e) {
-    toast('❌ 网络错误: ' + e.message, 5000);
-  } finally {
-    btn.textContent = '确认上传'; btn.disabled = false;
+async function doGithubSave(){
+  // get token from either modal or settings page
+  let token=state.ghToken, repo=state.ghRepo;
+  const modalOpen=document.getElementById('ghModal').classList.contains('open');
+  if(modalOpen){
+    token=document.getElementById('ghToken').value.trim();
+    repo =document.getElementById('ghRepo').value.trim();
   }
+  if(!token){ toast('请先配置 GitHub Token（设置页面）'); if(modalOpen) return; openGhModal(); return; }
+  if(!repo||!repo.includes('/')){ toast('仓库格式：用户名/仓库名'); return; }
+  state.ghToken=token; state.ghRepo=repo; saveState();
+
+  const now=new Date(), p=n=>String(n).padStart(2,'0');
+  const fname=`backup_${now.getFullYear()}-${p(now.getMonth()+1)}-${p(now.getDate())}_${p(now.getHours())}-${p(now.getMinutes())}.json`;
+  const payload=JSON.stringify({exportedAt:now.toISOString(),baskets:state.baskets,skuMap:state.skuMap,history:state.history,totalScans:state.totalScans,skuDb:state.skuDb,rules:state.rules},null,2);
+  const encoded=btoa(unescape(encodeURIComponent(payload)));
+  const apiUrl=`https://api.github.com/repos/${repo}/contents/backup/${fname}`;
+
+  const btn=document.getElementById('ghSaveBtn');
+  if(btn){ btn.textContent='上传中…'; btn.disabled=true; }
+  toast('正在上传…',10000);
+  try{
+    const res=await fetch(apiUrl,{method:'PUT',headers:{'Authorization':'token '+token,'Content-Type':'application/json','Accept':'application/vnd.github+json'},body:JSON.stringify({message:'backup: '+fname,content:encoded})});
+    const data=await res.json();
+    if(res.ok){ closeGhModal(); toast('✅ 备份成功！ backup/'+fname); }
+    else toast('❌ 失败: '+(data.message||res.status),5000);
+  } catch(e){ toast('❌ 网络错误: '+e.message,5000); }
+  finally{ if(btn){ btn.textContent='确认上传'; btn.disabled=false; } }
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-//  INPUT & INIT
+//  INIT
 // ═══════════════════════════════════════════════════════════════════════
-document.getElementById('skuInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') handleScan();
-});
+document.getElementById('skuInput').addEventListener('keydown', e=>{ if(e.key==='Enter') handleScan(); });
 
-// Restore voice button state
-(function() {
-  const map = { off:'voiceOff', zh:'voiceZh', es:'voiceEs' };
-  const v = state.voice || 'off';
-  document.getElementById(map[v] || 'voiceOff').classList.add('on');
+// Restore UI state
+(function(){
+  const vmap={off:'voiceOff',zh:'voiceZh',es:'voiceEs'};
+  document.getElementById(vmap[state.voice||'off']||'voiceOff').classList.add('on');
+  setScanMode(state.scanMode||'strict');
 })();
 
 renderBaskets();
